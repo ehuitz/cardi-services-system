@@ -24,7 +24,7 @@
             <x-filters.department-dropdown wire:model="department"/>
 		</div>
 
-		<label class="block text-xs text-center ml-4">
+		{{-- <label class="block text-xs text-center ml-4">
 			<span class="text-gray-500 dark:text-gray-400 mb-4">
 				Assigned
 			</span>
@@ -54,13 +54,13 @@
 			</div>
 
 
-            {{-- @php
+            @php
             if(request()->ticket->staff->count())
                 $num = 12 + request()->ticket->staff->count() + 12;
             else
                 $num = 6;
-        @endphp --}}
-		</label>
+        @endphp
+		</label> --}}
 	</div>
 	@endif
 
