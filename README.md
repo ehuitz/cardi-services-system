@@ -1,20 +1,22 @@
-# Laravel Helpdesk
+# Laravel CARDI Services System
 
 ### [View it live here](https://helpdesk.mattlittle.dev/)
+
 ### Login Info
+
 * Admin/Staff --> admin@admin.com | password
 * User --> user@user.com | password
 
-
 ## Features
-* Ticketing system w/ filters (status, category and staff)
+
+* Services System w/ filters (status, type and staff)
 * Messaging system
-* Tickets are assigned to specific staff based on country and category
-* Staff are able to create, edit and delete countries, categories, users and staff
+* Tickets are assigned to specific staff based on country and request Type
+* Staff are able to create, edit and delete countries, service request, users and staff
 * Ability to search through tickets with keyword
 
-
 ## Project Details
+
 * Laravel 8
 * Laravel Breeze
 * [TailwindCSS](https://tailwindcss.com/)
