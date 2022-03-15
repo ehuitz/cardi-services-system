@@ -1,6 +1,6 @@
 <x-filters.dropdown :attributes="$attributes">
    <x-slot name="label">
-      Country
+      Country of Origin
    </x-slot>
 
    @foreach($countries as $country)

@@ -93,9 +93,17 @@ class DatabaseSeeder extends Seeder
         \App\Models\Category::factory()->create(['name' => 'Other']);
 
 
-        \App\Models\Status::factory()->create(['name' => 'Open',    'color' => '0']);
-        \App\Models\Status::factory()->create(['name' => 'Pending', 'color' => '1']);
-        \App\Models\Status::factory()->create(['name' => 'Closed',  'color' => '2']);
+        \App\Models\Status::factory()->create(['name' => 'Ongoing',    'color' => '0']);
+        \App\Models\Status::factory()->create(['name' => 'Pending Review', 'color' => '1']);
+        \App\Models\Status::factory()->create(['name' => 'Rejected',  'color' => '2']);
+        \App\Models\Status::factory()->create(['name' => 'Pending Quotation',  'color' => '3']);
+        \App\Models\Status::factory()->create(['name' => 'Pending Quotation Approval',  'color' => '4']);
+        \App\Models\Status::factory()->create(['name' => 'Pending Contract',  'color' => '5']);
+        \App\Models\Status::factory()->create(['name' => 'Pending Signature',  'color' => '6']);
+        \App\Models\Status::factory()->create(['name' => 'Completed',  'color' => '9']);
+
+
+
         $staff1 = \App\Models\Staff::factory()->create(['user_id' => $user_staff1->id]);
         $staff1->categories()->attach(['1','2','3']);
         $staff1->countries()->attach(['1', '2']);
