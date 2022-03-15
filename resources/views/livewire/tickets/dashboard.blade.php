@@ -34,7 +34,7 @@
                         bg-gray-50 dark:text-gray-500 dark:bg-gray-800"
                     >
                         <th class="px-4 py-3">Request From</th>
-                        <th class="px-4 py-3">Title</th>
+                        <th class="px-4 py-3">Request Title</th>
                         <th class="px-4 py-3">Department</th>
                         <th class="px-4 py-3">Assigned</th>
                         <th class="px-4 py-3">Status</th>
