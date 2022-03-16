@@ -36,8 +36,8 @@
                     >
                         <th class="px-4 py-3">Request From</th>
                         <th class="px-4 py-3">Request Title</th>
-                        <th class="px-4 py-3">Department</th>
-                        <th class="px-4 py-3">Country</th>
+                        <th class="px-4 py-3">Department Assigned</th>
+                        <th class="px-4 py-3">Country of Origin</th>
                         <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Date</th>
                     </tr>
