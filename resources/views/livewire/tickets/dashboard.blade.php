@@ -26,6 +26,7 @@
     </div>
 
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
+        <span class="flag-icon flag-icon-gr"></span>
         <div class="w-full overflow-x-auto">
             <table class="w-full whitespace-no-wrap">
                 <thead>
@@ -36,7 +37,7 @@
                         <th class="px-4 py-3">Request From</th>
                         <th class="px-4 py-3">Request Title</th>
                         <th class="px-4 py-3">Department</th>
-                        <th class="px-4 py-3">Assigned</th>
+                        <th class="px-4 py-3">Country</th>
                         <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Date</th>
                     </tr>
@@ -88,8 +89,11 @@
                         </td>
 
 
-                        <td class="px-4 py-3">
-                            <x-cards.staff-avatars :staff="$ticket->staff"/>
+                        <td class="px-4 py-3 text-sm">
+
+                            <span class="flag-icon flag-icon-{{ $ticket->country->code ?? 'xx'}}"></span>
+                            {{-- {{ $ticket->country->name ?? ''}} --}}
+                            {{-- <x-cards.staff-avatars :staff="$ticket->staff"/> --}}
                         </td>
 
                         <td class="px-4 py-3 text-xs max-w-sm">

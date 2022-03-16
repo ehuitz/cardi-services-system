@@ -8,6 +8,7 @@ use App\Http\Livewire\Modal;
 class CreateModal extends Modal
 {
     public $name = '';
+    public $code = '';
 
     protected $listeners = [
         'createCountryErrorBag' => 'createCountryErrorBag',
@@ -17,7 +18,8 @@ class CreateModal extends Modal
 
     public function emitEvent() {
         $this->emit('createCountry', [
-            'name' => $this->name
+            'name' => $this->name,
+            'code' => $this->code
         ]);
     }
 
@@ -27,6 +29,7 @@ class CreateModal extends Modal
 
     public function resetValues() {
         $this->name = '';
+        $this->code = '';
     }
 
     public function render()

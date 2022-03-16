@@ -10,6 +10,7 @@ class EditModal extends Modal
 {
 	public $id_;
 	public $name;
+    public $code;
 
 	protected $listeners = [
 		'openEditModal' => 'show',
@@ -22,13 +23,15 @@ class EditModal extends Modal
 			$this->id_ = $params['id'];
 			$country = Country::find($this->id_);
 			$this->name = $country->name;
+            $this->code = $country->code;
 		}
 	}
 
 	public function emitEvent() {
 		$this->emit('updateCountry', [
 			'id' => $this->id_,
-			'name' => $this->name
+			'name' => $this->name,
+            'code' => $this->code
 		]);
 	}
 

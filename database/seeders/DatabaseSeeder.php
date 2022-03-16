@@ -14,46 +14,60 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $country1 = \App\Models\Country::factory()->create([
-            'name' => 'Antigua and Barbuda'
+            'name' => 'Antigua and Barbuda',
+            'code' => 'ag'
         ]);
         $country2 = \App\Models\Country::factory()->create([
-            'name' => 'The Bahamas'
+            'name' => 'The Bahamas',
+            'code' => 'bs'
         ]);
         $country3 = \App\Models\Country::factory()->create([
-            'name' => 'Barbados'
+            'name' => 'Barbados',
+            'code' => 'bb'
         ]);
         $country4 = \App\Models\Country::factory()->create([
-            'name' => 'Belize'
+            'name' => 'Belize',
+            'code' => 'bz'
         ]);
         $country5 = \App\Models\Country::factory()->create([
-            'name' => 'Cayman Islands'
+            'name' => 'Cayman Islands',
+            'code' => 'ky'
         ]);
         $country6 = \App\Models\Country::factory()->create([
-            'name' => 'Dominica'
+            'name' => 'Dominica',
+            'code' => 'dm'
         ]);
         $country7 = \App\Models\Country::factory()->create([
-            'name' => 'Greneda'
+            'name' => 'Greneda',
+            'code' => 'gd'
         ]);
         $country8 = \App\Models\Country::factory()->create([
-            'name' => 'Guyana'
+            'name' => 'Guyana',
+            'code' => 'gy'
         ]);
         $country9 = \App\Models\Country::factory()->create([
-            'name' => 'Jamaica'
+            'name' => 'Jamaica',
+            'code' => 'jm'
         ]);
         $country10 = \App\Models\Country::factory()->create([
-            'name' => 'Montserrat'
+            'name' => 'Montserrat',
+            'code' => 'ms'
         ]);
         $country11 = \App\Models\Country::factory()->create([
-            'name' => 'Saint Lucia'
+            'name' => 'Saint Lucia',
+            'code' => 'lc'
         ]);
         $country12 = \App\Models\Country::factory()->create([
-            'name' => 'St. Vincent and the Grenadines'
+            'name' => 'St. Vincent and the Grenadines',
+            'code' => 'vc'
         ]);
         $country13 = \App\Models\Country::factory()->create([
-            'name' => 'St. Kitts and Nevis'
+            'name' => 'St. Kitts and Nevis',
+            'code' => 'kn'
         ]);
         $country14 = \App\Models\Country::factory()->create([
-            'name' => 'Trinidad and Tobago'
+            'name' => 'Trinidad and Tobago',
+            'code' => 'tt'
         ]);
 
 

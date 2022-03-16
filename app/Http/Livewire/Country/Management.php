@@ -23,7 +23,8 @@ class Management extends Component
             // Validate the informaiton and make sure the
             // Country doesn't already exist
             $validated = Validator::make($payload, [
-                'name' => 'required|string|unique:countries,name'
+                'name' => 'required|string|unique:countries,name',
+                'code' => 'required|string|unique:countries,code'
             ])->validate();
 
             try {
@@ -48,12 +49,14 @@ class Management extends Component
             $validated = Validator::make($payload, [
                 'id' => 'required',
                 'name' => 'required|string|unique:countries,name,' . $payload['id'],
+                'code' => 'required|string|unique:countries,code,' . $payload['id'],
             ])->validate();
 
             try{
                 // Find the country and update the name
                 $country = Country::find($payload['id']);
                 $country->name = $payload['name'];
+                $country->code = $payload['code'];
                 $country->save();
                 $this->emitTo('country.edit-modal', 'show');
                 $this->emit('flashSuccess', 'Country updated!');

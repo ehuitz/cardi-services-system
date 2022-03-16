@@ -9,6 +9,8 @@
 
     <x-slot name="columns">
         <th class="px-4 py-3">Name</th>
+        <th class="px-4 py-3">Code</th>
+        <th class="px-4 py-3">Flag</th>
         <th class="px-4 py-3">Actions</th>
     </x-slot>
 
@@ -17,6 +19,12 @@
         <tr id="{{ $country->id }}" class="text-gray-700 dark:text-gray-400">
             <td class="px-4 py-3 text-sm dark:text-gray-200">
                 {{ $country->name }}
+            </td>
+            <td class="px-4 py-3 text-sm dark:text-gray-200">
+                {{ $country->code }}
+            </td>
+            <td>
+                <span class="flag-icon flag-icon-{{ $country->code ?? 'xx'}}"></span>
             </td>
             <td class="px-4 py-3 text-sm space-x-4 dark:text-gray-200">
                 <x-table.actions id="{{ $country->id }}" updateModal="true"/>
