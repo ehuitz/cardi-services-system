@@ -20,7 +20,7 @@
         <div class="md:mb-0 md:mt-0 mb-4 mt-4 md:w-1/3">
             <x-forms.search-input
                 wire:model.debounce.500ms="search"
-                placeholder="Search tickets..."
+                placeholder="Search requests..."
             />
         </div>
     </div>
