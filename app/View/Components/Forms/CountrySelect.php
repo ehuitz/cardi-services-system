@@ -19,7 +19,7 @@ class CountrySelect extends Component
     public function render()
     {
         return view('components.forms.country-select', [
-            "countries" => Country::all(),
+            "countries" => Country::where('type','External')->get(),
             "label" => $this->label,
             "id" => $this->identifier,
             "name" => $this->name ?? $this->identifier,

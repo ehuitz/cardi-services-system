@@ -15,59 +15,128 @@ class DatabaseSeeder extends Seeder
     {
         $country1 = \App\Models\Country::factory()->create([
             'name' => 'Antigua and Barbuda',
-            'code' => 'ag'
+            'code' => 'ag',
+            'type' => 'External'
         ]);
         $country2 = \App\Models\Country::factory()->create([
             'name' => 'The Bahamas',
-            'code' => 'bs'
+            'code' => 'bs',
+            'type' => 'External'
         ]);
         $country3 = \App\Models\Country::factory()->create([
             'name' => 'Barbados',
-            'code' => 'bb'
+            'code' => 'bb',
+            'type' => 'External'
         ]);
         $country4 = \App\Models\Country::factory()->create([
             'name' => 'Belize',
-            'code' => 'bz'
+            'code' => 'bz',
+            'type' => 'External'
         ]);
         $country5 = \App\Models\Country::factory()->create([
             'name' => 'Cayman Islands',
-            'code' => 'ky'
+            'code' => 'ky',
+            'type' => 'External'
         ]);
         $country6 = \App\Models\Country::factory()->create([
             'name' => 'Dominica',
-            'code' => 'dm'
+            'code' => 'dm',
+            'type' => 'External'
         ]);
         $country7 = \App\Models\Country::factory()->create([
             'name' => 'Greneda',
-            'code' => 'gd'
+            'code' => 'gd',
+            'type' => 'External'
         ]);
         $country8 = \App\Models\Country::factory()->create([
             'name' => 'Guyana',
-            'code' => 'gy'
+            'code' => 'gy',
+            'type' => 'External'
         ]);
         $country9 = \App\Models\Country::factory()->create([
             'name' => 'Jamaica',
-            'code' => 'jm'
+            'code' => 'jm',
+            'type' => 'External'
         ]);
         $country10 = \App\Models\Country::factory()->create([
             'name' => 'Montserrat',
-            'code' => 'ms'
+            'code' => 'ms',
+            'type' => 'External'
         ]);
         $country11 = \App\Models\Country::factory()->create([
             'name' => 'Saint Lucia',
-            'code' => 'lc'
+            'code' => 'lc',
+            'type' => 'External'
         ]);
         $country12 = \App\Models\Country::factory()->create([
             'name' => 'St. Vincent and the Grenadines',
-            'code' => 'vc'
+            'code' => 'vc',
+            'type' => 'External'
         ]);
         $country13 = \App\Models\Country::factory()->create([
             'name' => 'St. Kitts and Nevis',
-            'code' => 'kn'
+            'code' => 'kn',
+            'type' => 'External'
         ]);
         $country14 = \App\Models\Country::factory()->create([
             'name' => 'Trinidad and Tobago',
-            'code' => 'tt'
+            'code' => 'tt',
+            'type' => 'External'
+        ]);
+        $country15 = \App\Models\Country::factory()->create([
+            'name' => 'Communications',
+            'code' => '1',
+            'type' => 'Internal'
+        ]);
+        $country16 = \App\Models\Country::factory()->create([
+            'name' => 'Headquarters',
+            'code' => '0',
+            'type' => 'Internal'
+        ]);
+        $country17 = \App\Models\Country::factory()->create([
+            'name' => 'Library',
+            'code' => '2',
+            'type' => 'Internal'
+        ]);
+        $country18 = \App\Models\Country::factory()->create([
+            'name' => 'Biometrics',
+            'code' => '3',
+            'type' => 'Internal'
+        ]);
+        $country19 = \App\Models\Country::factory()->create([
+            'name' => 'Finance',
+            'code' => '4',
+            'type' => 'Internal'
+        ]);
+        $country20 = \App\Models\Country::factory()->create([
+            'name' => 'CACSH',
+            'code' => '5',
+            'type' => 'Internal'
+        ]);
+        $country21 = \App\Models\Country::factory()->create([
+            'name' => 'Human Resources',
+            'code' => '6',
+            'type' => 'Internal'
+        ]);
+        $country22 = \App\Models\Country::factory()->create([
+            'name' => 'Resource Mobilization',
+            'code' => '7',
+            'type' => 'Internal'
+        ]);
+        $country23 = \App\Models\Country::factory()->create([
+            'name' => 'Information Technology',
+            'code' => '8',
+            'type' => 'Internal'
+        ]);
+        $country24 = \App\Models\Country::factory()->create([
+            'name' => 'Executive Directorate',
+            'code' => '9',
+            'type' => 'Internal'
+        ]);
+        $country25 = \App\Models\Country::factory()->create([
+            'name' => 'Research and Development',
+            'code' => '10',
+            'type' => 'Internal'
         ]);
 
 
@@ -126,39 +195,23 @@ class DatabaseSeeder extends Seeder
         $staff2->categories()->attach(['1','2','3','4', '5']);
         $staff2->countries()->attach(['3', '4']);
 
-        $tickets_1 = \App\Models\Ticket::factory(3)->create([
+        $tickets_1 = \App\Models\Ticket::factory(1)->create([
             'country_id' => $country1->id,
             'category_id' => '1',
             'status_id' => '1',
             'author_id' => $user_user1->id
         ]);
-        $tickets_2 = \App\Models\Ticket::factory(7)->create([
+        $tickets_2 = \App\Models\Ticket::factory(1)->create([
             'country_id' => $country2->id,
             'category_id' => '3',
             'status_id' => '1',
             'author_id' => $user_user2->id
-        ]);
-        $tickets_3 = \App\Models\Ticket::factory(5)->create([
-            'country_id' => $country3->id,
-            'category_id' => '5',
-            'status_id' => '1',
-            'author_id' => $user_user3->id
-        ]);
-        $tickets_4 = \App\Models\Ticket::factory(2)->create([
-            'country_id' => $country4->id,
-            'category_id' => '4',
-            'status_id' => '1',
-            'author_id' => $user_user4->id
         ]);
 
         foreach($tickets_1 as $ticket)
             $ticket->staff()->attach($staff1->id);
         foreach($tickets_2 as $ticket)
             $ticket->staff()->attach($staff1->id);
-        foreach($tickets_3 as $ticket)
-            $ticket->staff()->attach($staff2->id);
-        foreach($tickets_4 as $ticket)
-            $ticket->staff()->attach($staff2->id);
 
         $charger = \App\Models\DeviceModel::create([
             'name' => 'USB-C Power Supply',
@@ -219,14 +272,38 @@ class DatabaseSeeder extends Seeder
             'country_id' => $country1->id
         ]);
 
-        $hr = \App\Models\Department::create([
-            'name' => 'Human Resources',
-            'country_id' => 14
+        $dept1 = \App\Models\Department::create([
+            'name' => 'CARDI Biometrics	',
+            'country_id' => 18
         ]);
 
-        $it = \App\Models\Department::create([
-            'name' => 'Information Technology',
-            'country_id' => 14
+        $dept2 = \App\Models\Department::create([
+            'name' => 'CARDI Barbados',
+            'country_id' => 3
+        ]);
+        $dept3 = \App\Models\Department::create([
+            'name' => 'CARDI Bahamas',
+            'country_id' => 2
+        ]);
+        $dept4 = \App\Models\Department::create([
+            'name' => 'CARDI Belize',
+            'country_id' => 4
+        ]);
+        $dept5 = \App\Models\Department::create([
+            'name' => 'CARDI Greneda',
+            'country_id' => 7
+        ]);
+        $dept6 = \App\Models\Department::create([
+            'name' => 'Headquarters',
+            'country_id' => 16
+        ]);
+        $dept7 = \App\Models\Department::create([
+            'name' => 'Human Resources',
+            'country_id' => 21
+        ]);
+        $dept8 = \App\Models\Department::create([
+            'name' => 'Finance',
+            'country_id' => 19
         ]);
     }
 }

@@ -29,9 +29,13 @@ class RequestController extends Controller
 
     // create --> create ticket page /request
     public function create() {
+
+     // dd(Country::where('type', 'LIKE' ,'External')->get());
+
         return view('requests.create', [
-            'categories' => Category::all(),
-            'countries' => Country::all()
+            'countries' => Country::all(),
+            'categories' => Category::all()
+
         ]);
     }
 
@@ -44,7 +48,7 @@ class RequestController extends Controller
             'category' => 'required'
         ]);
 
-        $status = Status::where('name', 'Open')->first();
+        $status = Status::where('name', 'Ongoing')->first();
         $staff = CountryStaff::with(['CategoryStaff' => function($query) {
             $query->where('category_id', $request->category);
         }])->where('country_id', $request->country)

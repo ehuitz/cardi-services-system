@@ -14,7 +14,7 @@
     >
         @foreach($departments as $department)
             <option value="{{ $department->id }}">
-                {{ $department->name  ." - " . $department->country->name}}
+                {{ $department->name}}
             </option>
         @endforeach
     </select>

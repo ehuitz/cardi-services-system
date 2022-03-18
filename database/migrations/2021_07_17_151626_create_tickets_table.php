@@ -22,6 +22,11 @@ class CreateTicketsTable extends Migration
             $table->foreignId('author_id');
             $table->foreignId('category_id');
             $table->foreignId('status_id');
+            $table->string('phone')->nullable();
+            $table->string('position')->nullable();
+            $table->string('name')->nullable();
+            $table->string('type')->nullable();
+            $table->string('activities')->nullable();
             $table->timestamps();
         });
     }

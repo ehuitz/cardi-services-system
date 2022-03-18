@@ -5,7 +5,7 @@ namespace App\View\Components\Forms;
 use App\Models\Country;
 use Illuminate\View\Component;
 
-class CountryDropdown extends Component
+class CountryAllDropdown extends Component
 {
     public $label, $identifier, $name;
 
@@ -17,8 +17,8 @@ class CountryDropdown extends Component
 
     public function render()
     {
-        return view('components.forms.country-dropdown', [
-            "countries" => Country::where('type','External')->get(),
+        return view('components.forms.countryall-dropdown', [
+            "countries" => Country::all(),
             "label" => $this->label,
             "id" => $this->identifier,
             "name" => $this->name ?? $this->identifier,

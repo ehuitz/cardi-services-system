@@ -7,6 +7,14 @@
             {{-- <x-breeze.application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
         </x-slot>
 
+        <div>
+
+            <h2 class="mt-2 text-center text-2xl font-extrabold text-gray-900">Sign in to your account</h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+              Or
+              <a href="{{ route('register') }}" class="font-medium text-green-600 hover:text-indigo-500"> {{ __('Register') }} </a>
+            </p>
+          </div>
         <!-- Session Status -->
         <x-breeze.auth-session-status class="mb-4" :status="session('status')" />
 
@@ -34,16 +42,17 @@
             </div>
 
             <!-- Remember Me -->
-            <div class="block mt-4">
+            <div class="flex mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring-1 focus:ring-blue-200 focus:ring-opacity-50" name="remember">
                     <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">{{ __('Remember me') }}</span>
                 </label>
+
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900
+                    <a class="underline text-sm text-green-600 hover:text-gray-900
                         dark:text-gray-300 dark:hover:text-gray-500" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>

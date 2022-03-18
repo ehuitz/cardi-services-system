@@ -18,7 +18,7 @@
             />
             <x-nav.management/>
         @else
-        <x-nav.side-nav-link title="My Tickets" icon="ticket"
+        <x-nav.side-nav-link title="My Requests" icon="ticket"
             active="{{ request()->routeIs('requests.index') }}"
             link="{{ route('requests.index') }}"
         />

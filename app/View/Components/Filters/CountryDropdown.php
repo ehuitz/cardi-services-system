@@ -10,7 +10,7 @@ class CountryDropdown extends Component
     public function render()
     {
         return view('components.filters.country-dropdown', [
-            'countries' => Country::all()
+            'countries' => Country::where('type','External')->get()
         ]);
     }
 }

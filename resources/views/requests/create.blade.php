@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center">
-            <span class="ml-6">Submit a Ticket</span>
+            <span class="ml-6">Submit a Service Request</span>
         </div>
     </x-slot>
 

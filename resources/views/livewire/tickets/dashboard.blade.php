@@ -14,20 +14,19 @@
             <x-filters.category-dropdown wire:model="category"/>
             <x-filters.country-dropdown wire:model="country"/>
             <x-filters.department-dropdown wire:model="department"/>
-            <x-filters.staff-dropdown wire:model="staff"/>
+            {{-- <x-filters.staff-dropdown wire:model="staff"/> --}}
             @endif
         </div>
         <div class="md:mb-0 md:mt-0 mb-4 mt-4 md:w-1/3">
             <x-forms.search-input
                 wire:model.debounce.500ms="search"
-                placeholder="Search requests..."
+                placeholder="Search..."
             />
         </div>
     </div>
 
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
-        <span class="flag-icon flag-icon-gr"></span>
-        <div class="w-full overflow-x-auto">
+                <div class="w-full overflow-x-auto">
             <table class="w-full whitespace-no-wrap">
                 <thead>
                     <tr class="text-xs font-semibold tracking-wide text-left

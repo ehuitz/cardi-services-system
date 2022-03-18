@@ -98,8 +98,8 @@ class Management extends Component
 
     public function render() {
         return view('livewire.country.management', [
-            'countries' => Country::latest('updated_at')
-                ->paginate(10)
+            'countries' => Country::first('updated_at')
+                ->paginate(14)
         ]);
     }
 }

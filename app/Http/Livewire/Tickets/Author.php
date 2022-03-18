@@ -9,6 +9,8 @@ class Author extends Component
 {
     public $recentTickets;
     public $author;
+    public $ticket;
+
 
     public function mount() {
         $this->author = request()->ticket->author;
@@ -17,7 +19,11 @@ class Author extends Component
                 ->limit(3)
                 ->get()
                 ->toArray();
+
+        $this->ticket = request()->ticket;
     }
+
+
 
     public function render()
     {

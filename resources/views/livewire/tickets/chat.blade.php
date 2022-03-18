@@ -1,5 +1,5 @@
 <div class="flex md:flex-row flex-col antialiased text-gray-800">
-    <div class="md:flex overflow-x-hidden w-full max-h-96 sm:grid sm:grid-cols-1">
+    <div class="md:flex overflow-x-hidden w-3/5 max-h-96 sm:grid sm:grid-cols-1">
         <div class="flex flex-col flex-auto pr-0 md:pr-4">
             <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 dark:bg-gray-700 h-full">
                 <div class="flex flex-col flex-col-reverse h-full overflow-x-auto overflow-y-scroll mb-4 p-4 min-h-100 max-h-100
@@ -53,5 +53,10 @@
             </div>
         </div>
     </div>
+    <div class="md:flex overflow-x-hidden w-2/5 max-h-96 sm:grid sm:grid-cols-1">
+
     @livewire('tickets.author')
+
+    </div>
+
 </div>
