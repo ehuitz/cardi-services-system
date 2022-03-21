@@ -18,7 +18,7 @@ class CountryAllDropdown extends Component
     public function render()
     {
 
-        return view('components.forms.countryall-dropdown', [
+        return view('components.forms.country-all-dropdown', [
             "countries" => Country::all(),
             "label" => $this->label,
             "id" => $this->identifier,

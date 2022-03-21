@@ -13,7 +13,7 @@
 
         <x-forms.input label="Name" id="edit_name" placeholder="Name" wire:model.defer="name" />
 
-        <x-forms.countryall-dropdown :identifier="'edit_country'" :label="'Country'" :id="'edit_country'"
+        <x-forms.country-all-dropdown :identifier="'edit_country'" :label="'Country'" :id="'edit_country'"
             :name="'edit_country'" wire:model.defer="country" />
 
     </x-slot>

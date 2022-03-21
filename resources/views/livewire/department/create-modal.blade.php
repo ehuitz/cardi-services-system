@@ -15,7 +15,7 @@
 			wire:model.defer="name"
 		/>
 
-		<x-forms.countryall-dropdown
+		<x-forms.country-all-dropdown
 			:identifier="'create_country'"
 			:label="'Country'"
 			:id="'create_country'"
