@@ -54,7 +54,7 @@
                 </div>
                 <div class="flex flex-col mt-8">
                     <div class="flex flex-row items-center justify-between">
-                        <span class="font-bold dark:text-gray-200 text-sm">Recent Tickets</span>
+                        <span class="font-bold dark:text-gray-200 text-sm">Recent Requests</span>
                         <span
                             class="flex items-center justify-center bg-gray-300 text-xs
                     dark:bg-gray-600 dark:text-gray-200 font-medium h-5 w-5 rounded-full">
@@ -75,7 +75,7 @@
                             @endforeach
                         </div>
                     @else
-                        <p class="ml-2 mt-2 text-sm font-medium dark:text-gray-400">No other tickets</p>
+                        <p class="ml-2 mt-2 text-sm font-medium dark:text-gray-400">No other requests</p>
                     @endif
                 </div>
             </div>
