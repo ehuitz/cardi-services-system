@@ -50,7 +50,7 @@ class RequestController extends Controller
 
         $status = Status::where('name', 'Ongoing')->first();
 
-       
+
 
 
         $staff = CountryStaff::with(['CategoryStaff' => function($query) {
@@ -61,7 +61,12 @@ class RequestController extends Controller
         $ticket = Ticket::create([
             'title' => $request->subject,
             'content' => $request->content,
-            'country_id' => $request->country,
+            'country_id' => auth()->user()->country_id,
+            'phone' => auth()->user()->phone,
+            'position' => auth()->user()->position,
+            'name' => auth()->user()->company_name,
+            'type' => auth()->user()->type,
+            'activities' => auth()->user()->activities,
             'category_id' => $request->category,
             'status_id' => $status->id,
             'author_id' => auth()->user()->id,

@@ -12,7 +12,8 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
+            <h3 class="text-lg font-medium leading-6 text-gray-900">Register - CARDI Services System</h3>
+            <p class="mt-1 text-sm text-gray-600">This information will be displayed internally only. Information can not be changed after this.</p>
             <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-8 gap-6">
                         <!-- Name -->
