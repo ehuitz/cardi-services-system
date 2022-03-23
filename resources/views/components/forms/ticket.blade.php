@@ -7,7 +7,7 @@
         <x-forms.select label="Country" :items="$countries" id="country"/>
         <x-forms.textarea label="Message" placeholder="What seems to be the issue?" id="content" />
         <div class="mt-4">
-            <x-forms.button label="Submit Ticket"/>
+            <x-forms.button label="Submit Request"/>
         </div>
     </form>
 </div>

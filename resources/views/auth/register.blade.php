@@ -9,52 +9,98 @@
         <!-- Validation Errors -->
         <x-breeze.auth-validation-errors class="mb-4" :errors="$errors" />
 
+
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
-            <div>
-                <x-breeze.label for="name" :value="__('Name')" />
+            <div class="px-4 py-5 bg-white sm:p-6">
+                <div class="grid grid-cols-8 gap-6">
+                        <!-- Name -->
+                        <div class="md:col-span-4 sm:col-span-8">
+                            <x-breeze.label for="name" :value="__('Name')" />
 
-                <x-breeze.input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+                            <x-breeze.input id="name" class="block mt-1 w-full" type="text" name="name"
+                                :value="old('name')" autofocus />
+                        </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-breeze.label for="email" :value="__('Email')" />
 
-                <x-breeze.input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
+                        <!-- Email Address -->
+                        <div class="md:col-span-4 sm:col-span-8">
+                            <x-breeze.label for="email" :value="__('Email')" />
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-breeze.label for="password" :value="__('Password')" />
+                            <x-breeze.input id="email" class="block mt-1 w-full" type="email" name="email"
+                                :value="old('email')"/>
+                        </div>
 
-                <x-breeze.input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
+                        <div class="md:col-span-8 sm:col-span-8">
+                            <x-forms.register :countries="$countries" />
+                        </div>
+                        <div class="md:col-span-8 sm:col-span-8">
+                            <x-breeze.label for="phone" :value="__('Phone')" />
 
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-breeze.label for="password_confirmation" :value="__('Confirm Password')" />
+                            <x-breeze.input id="phone" class="block mt-1 w-full" type="text" name="phone"
+                                :value="old('phone')" />
+                        </div>
 
-                <x-breeze.input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
+                        <div class="md:col-span-4 sm:col-span-8">
+                            <x-breeze.label for="position" :value="__('Position')" />
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900
-                    dark:text-gray-300 dark:hover:text-gray-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+                            <x-breeze.input id="position" class="block mt-1 w-full" type="text" name="position"
+                                :value="old('position')" />
+                        </div>
+                        <div class="md:col-span-4 sm:col-span-8">
+                            <x-breeze.label for="company_name" :value="__('Company Name')" />
 
-                <x-breeze.button class="ml-4">
-                    {{ __('Register') }}
-                </x-breeze.button>
-            </div>
+                            <x-breeze.input id="company_name" class="block mt-1 w-full" type="text" name="company_name"
+                                :value="old('company_name')" />
+                        </div>
+
+                        <div class="md:col-span-4 sm:col-span-8">
+                            <x-breeze.label for="type" :value="__('Company Type')" />
+
+                            <x-breeze.input id="type" class="block mt-1 w-full" type="text" name="type"
+                                :value="old('type')" />
+                        </div>
+
+                        <div class="md:col-span-4 sm:col-span-8">
+                            <x-breeze.label for="activities" :value="__('Activities')" />
+
+                            <x-breeze.input id="activities" class="block mt-1 w-full" type="text" name="activities"
+                                :value="old('activities')" />
+                        </div>
+
+                        <!-- Password -->
+                        <div class="md:col-span-8 sm:col-span-8">
+                            <x-breeze.label for="password" :value="__('Password')" />
+
+                            <x-breeze.input id="password" class="block mt-1 w-full" type="password" name="password"
+                                autocomplete="new-password" />
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="md:col-span-8 sm:col-span-8">
+                            <x-breeze.label for="password_confirmation" :value="__('Confirm Password')" />
+
+                            <x-breeze.input id="password_confirmation" class="block mt-1 w-full" type="password"
+                                name="password_confirmation" />
+                        </div>
+
+                        <div class="md:col-span-8 sm:col-span-8 flex items-center justify-end mt-4">
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900
+                    dark:text-gray-300 dark:hover:text-gray-500"
+                                href="{{ route('login') }}">
+                                {{ __('Already registered?') }}
+                            </a>
+
+                            <x-breeze.button class="ml-4">
+                                {{ __('Register') }}
+                            </x-breeze.button>
+                        </div>
+
+                    </div>
+                </div>
+
         </form>
+    </div>
     </x-breeze.auth-card>
 </x-guest-layout>
