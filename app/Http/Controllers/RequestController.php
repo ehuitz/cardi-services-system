@@ -44,7 +44,6 @@ class RequestController extends Controller
         $request->validate([
             'subject' => 'required',
             'content' => 'required',
-            'country' => 'required',
             'category' => 'required'
         ]);
 

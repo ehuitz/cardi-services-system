@@ -135,7 +135,7 @@ class Management extends Component
                 'country' => $this->country
             ])
                 ->with(['country'])
-                ->paginate(10)
+                ->paginate(14)
                 ->withQueryString()
         ]);
     }

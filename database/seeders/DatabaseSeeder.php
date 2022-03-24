@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'type' => 'External'
         ]);
         $country7 = \App\Models\Country::factory()->create([
-            'name' => 'Greneda',
+            'name' => 'Grenada',
             'code' => 'gd',
             'type' => 'External'
         ]);
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'type' => 'External'
         ]);
         $country11 = \App\Models\Country::factory()->create([
-            'name' => 'Saint Lucia',
+            'name' => 'St. Lucia',
             'code' => 'lc',
             'type' => 'External'
         ]);
@@ -273,37 +273,99 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $dept1 = \App\Models\Department::create([
-            'name' => 'CARDI Biometrics	',
-            'country_id' => 18
+            'name' => 'CARDI Antigua and Barbuda',
+            'country_id' => 1
         ]);
 
         $dept2 = \App\Models\Department::create([
-            'name' => 'CARDI Barbados',
-            'country_id' => 3
-        ]);
-        $dept3 = \App\Models\Department::create([
             'name' => 'CARDI Bahamas',
             'country_id' => 2
+        ]);
+        $dept3 = \App\Models\Department::create([
+            'name' => 'CARDI Barbados',
+            'country_id' => 3
         ]);
         $dept4 = \App\Models\Department::create([
             'name' => 'CARDI Belize',
             'country_id' => 4
         ]);
         $dept5 = \App\Models\Department::create([
-            'name' => 'CARDI Greneda',
-            'country_id' => 7
+            'name' => 'CARDI Cayman Islands',
+            'country_id' => 5
         ]);
         $dept6 = \App\Models\Department::create([
-            'name' => 'Headquarters',
-            'country_id' => 16
+            'name' => 'CARDI Dominica',
+            'country_id' => 6
         ]);
         $dept7 = \App\Models\Department::create([
-            'name' => 'Human Resources',
-            'country_id' => 21
+            'name' => 'CARDI Grenada',
+            'country_id' => 7
         ]);
         $dept8 = \App\Models\Department::create([
+            'name' => 'CARDI Guyana',
+            'country_id' => 8
+        ]);
+        $dept9 = \App\Models\Department::create([
+            'name' => 'CARDI Jamaica',
+            'country_id' => 9
+        ]);
+        $dept10 = \App\Models\Department::create([
+            'name' => 'CARDI Montserrat',
+            'country_id' => 10
+        ]);
+        $dept11 = \App\Models\Department::create([
+            'name' => 'CARDI St. Kitts and Nevis',
+            'country_id' => 13
+        ]);
+        $dept12 = \App\Models\Department::create([
+            'name' => 'CARDI St. Lucia',
+            'country_id' => 11
+        ]);
+        $dept13 = \App\Models\Department::create([
+            'name' => 'CARDI St. Vincent and the Grenadines',
+            'country_id' => 12
+        ]);
+        $dept14 = \App\Models\Department::create([
+            'name' => 'CARDI Trinidad and Tobago',
+            'country_id' => 14
+        ]);
+        $dept22 = \App\Models\Department::create([
+            'name' => 'Biometrics',
+            'country_id' => 18
+        ]);
+        $dept15 = \App\Models\Department::create([
+            'name' => 'Communications',
+            'country_id' => 15
+        ]);
+        $dept16 = \App\Models\Department::create([
+            'name' => 'Executive Directorate',
+            'country_id' => 24
+        ]);
+        $dept17 = \App\Models\Department::create([
             'name' => 'Finance',
             'country_id' => 19
         ]);
+        $dept18 = \App\Models\Department::create([
+            'name' => 'Headquarters',
+            'country_id' => 16
+        ]);
+        $dept19 = \App\Models\Department::create([
+            'name' => 'Human Resources',
+            'country_id' => 21
+        ]);
+        $dept23 = \App\Models\Department::create([
+            'name' => 'Information Technology',
+            'country_id' => 23
+        ]);
+        $dept20 = \App\Models\Department::create([
+            'name' => 'Research and Development',
+            'country_id' => 25
+        ]);
+        $dept21 = \App\Models\Department::create([
+            'name' => 'Resource Mobilization',
+            'country_id' => 22
+        ]);
+
+
     }
 }

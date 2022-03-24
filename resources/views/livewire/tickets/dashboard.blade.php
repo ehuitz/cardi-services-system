@@ -2,7 +2,7 @@
     @if(request()->user()->is_staff())
         Dashboard
     @else
-        My Tickets
+        My Requests
     @endif
 </x-slot>
 
