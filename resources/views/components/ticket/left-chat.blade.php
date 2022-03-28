@@ -1,11 +1,11 @@
 @props(['message'])
-<div class="col-start-1 col-end-8 p-3 rounded-lg">
+<div class="col-start-1 col-end-13 p-3 rounded-lg">
     <div class="flex flex-row items-center">
-        <div class="flex items-center justify-center 
+        <div class="flex items-center justify-center
             h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
         >
-            <img class="object-cover rounded-full" 
-                src="https://i.pravatar.cc/100?u={{ $message['author_id'] }}" />  
+            <img class="object-cover rounded-full"
+                src="https://i.pravatar.cc/100?u={{ $message['author_id'] }}" />
         </div>
         <div class="relative ml-3 text-sm bg-indigo-200 dark:bg-indigo-500
             dark:text-gray-100 py-2 px-4 shadow rounded-xl min-w-65 md:min-w-35">

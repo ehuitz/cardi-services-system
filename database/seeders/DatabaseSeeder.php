@@ -367,5 +367,31 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        $currency1 = \App\Models\Currency::create([
+            'code' => 'BZD'
+        ]);
+        $currency2 = \App\Models\Currency::create([
+            'code' => 'JMD'
+        ]);
+        $currency3 = \App\Models\Currency::create([
+            'code' => 'XCD'
+        ]);
+        $currency4 = \App\Models\Currency::create([
+            'code' => 'BSD'
+        ]);
+        $currency5 = \App\Models\Currency::create([
+            'code' => 'BBD'
+        ]);
+        $currency6 = \App\Models\Currency::create([
+            'code' => 'USD'
+        ]);
+        $currency7 = \App\Models\Currency::create([
+            'code' => 'GYD'
+        ]);
+        $currency8 = \App\Models\Currency::create([
+            'code' => 'KYD'
+        ]);
+
+
     }
 }
