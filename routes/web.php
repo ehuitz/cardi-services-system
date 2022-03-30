@@ -3,6 +3,7 @@
 use App\Http\Middleware\StaffOnly;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\FileUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,12 @@ Route::get('/dashboard', function() {
 })->middleware('auth')
   ->name('dashboard');
 
-  
+
+// Route::get('file-upload', [FileUploadController::class, 'index'])
+//     ->middleware('auth');
+Route::post('/store', [FileUploadController::class, 'store'])
+->middleware('auth')
+->name('files.store');
 
 Route::post('/api/create-message', [MessageController::class, 'store'])
     ->middleware('auth')

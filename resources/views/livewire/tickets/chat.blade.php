@@ -1,10 +1,15 @@
 @if (request()->user()->is_staff())
-    <div class="flex md:flex-row flex-col antialiased text-gray-800">
-        <div class="md:w-3/5 overflow-x-hidden max-h-96 sm:w-full">
-            <div class="flex flex-col flex-auto pr-0 md:pr-4">
+    <div class="flex md:flex-row flex-col antialiased text-gray-800 gap-4">
+        <div class="md:w-2/5 overflow-x-hidden min-h-200 sm:w-full">
+
+            @livewire('tickets.author')
+
+        </div>
+        <div class="md:w-3/5 overflow-x-hidden min-h-full sm:w-full ">
+            <div class="flex flex-col flex-auto pr-0 md:pr-4 ">
                 <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 dark:bg-gray-700 h-full">
                     <div
-                        class="flex flex-col flex-col-reverse h-full overflow-x-auto overflow-y-scroll mb-4 p-4 min-h-100 max-h-100
+                        class="flex flex-col flex-col-reverse h-full overflow-x-auto overflow-y-scroll mb-4 p-4 h-screen
                     scrollbar scrollbar-thumb-green-300 scrollbar-track-gray-200
                     dark:scrollbar-thumb-green-500 dark:scrollbar-track-gray-600">
                         <div class="flex flex-col-reverse h-full">
@@ -52,13 +57,14 @@
         </div>
 
 
-        <div class="md:w-2/5 overflow-x-hidden min-h-200 sm:w-full">
 
-            @livewire('tickets.author')
-
-        </div>
     @else
         <div class="flex md:flex-row flex-col antialiased text-gray-800">
+            <div class="md:w-2/5 overflow-x-hidden max-h-96 sm:w-full overflow-x-auto overflow-y-scroll">
+
+                @livewire('tickets.author')
+
+            </div>
             <div class="md:w-3/5 overflow-x-hidden max-h-96 sm:w-full">
                 <div class="flex flex-col flex-auto pr-0 md:pr-4">
                     <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 dark:bg-gray-700 h-full">
@@ -109,11 +115,7 @@
                     </div>
                 </div>
             </div>
-            <div class="md:w-2/5 overflow-x-hidden max-h-96 sm:w-full overflow-x-auto overflow-y-scroll">
 
-                @livewire('tickets.author')
-
-            </div>
         </div>
 
 @endif
