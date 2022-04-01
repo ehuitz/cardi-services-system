@@ -36,6 +36,10 @@ Route::group(['prefix' => 'manage'], function() {
     return view('departments.index');
     })->name('departments.index');
 
+    Route::get('/blocks', function() {
+        return view('blocks.index');
+        })->name('blocks.index');
+
 });
 
 ?>
