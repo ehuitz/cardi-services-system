@@ -16,6 +16,9 @@
                 active="{{ request()->routeIs('devices.index') }}"
                 link="{{ route('devices.index') }}"
             />
+
+            <x-nav.seeds/>
+
             <x-nav.management/>
         @else
         <x-nav.side-nav-link title="My Requests" icon="ticket"

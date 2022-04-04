@@ -1,20 +1,20 @@
 <x-modal wire:model="show" updateModal="true">
     <x-slot name="icon">
-        <x-icons.icon name="block" />
+        <x-icons.icon name="field" />
     </x-slot>
 
     <x-slot name="header">
-        Edit Block
+        Edit field
     </x-slot>
 
     <x-slot name="fields">
 
         <x-forms.hidden :label="'ID'" :id="'edit_id'" placeholder="ID" wire:model.defer="oid" />
 
-        <x-forms.input label="Location" id="edit_location" placeholder="Location" wire:model.defer="location" />
+        <x-forms.input label="name" id="edit_name" placeholder="name" wire:model.defer="name" />
 
-        <x-forms.country-dropdown :identifier="'edit_country'" :label="'Country'" :id="'edit_country'"
-            :name="'edit_country'" wire:model.defer="country" />
+        <x-forms.block-dropdown :identifier="'edit_block'" :label="'Block'" :id="'edit_block'"
+            :name="'edit_block'" wire:model.defer="block" />
 
         <x-forms.input label="Area (acres)" id="edit_area" placeholder="Area" wire:model.defer="area" />
 

@@ -9,8 +9,10 @@ use App\Http\Livewire\Modal;
 class EditModal extends Modal
 {
     public $oid = '';
-    public $name = '';
+    public $location = '';
     public $country = '';
+    public $area = '';
+    public $description = '';
 
 
 	protected $listeners = [
@@ -23,20 +25,21 @@ class EditModal extends Modal
 		if ($params) {
 			$this->oid = $params['id'];
 			$block = Block::find($this->oid);
-			$this->name = $block->name;
-			// $this->deviceModel = $device->model_id;
+			$this->location = $block->location;
 			$this->country = $block->country_id;
-            // $this->serialNumber = $device->serial_number;
-            // $this->macAddress = $device->mac_address;
+            $this->area = $block->area;
+            $this->description = $block->description;
+
         }
 	}
 
 	public function emitEvent() {
 		$this->emit('updateBlock', [
 			'id' => $this->oid,
-			'name' => $this->name,
-
+			'location' => $this->location,
             'country_id' => $this->country == '0' ? null : $this->country,
+            'area' => $this->area,
+            'description' => $this->description,
 		]);
 	}
 

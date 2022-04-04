@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Block;
+namespace App\Http\Livewire\Field;
 
-use App\Models\Block;
+use App\Models\Field;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Validation\Rule;
@@ -21,9 +21,9 @@ class Management extends Component
     protected $queryString = ['search', 'sortField', 'sortAsc','country'];
 
     protected $listeners = [
-        'createBlock' => 'create',
-        'updateBlock' => 'update',
-        'deleteBlock' => 'delete',
+        'createField' => 'create',
+        'updateField' => 'update',
+        'deleteField' => 'delete',
     ];
 
     public function updatingSearch() {
@@ -43,76 +43,76 @@ class Management extends Component
         try {
             // Validate information and make sure name doesn't exist
             $validated = Validator::make($payload, [
-                'location' => 'required|string',
-                'country_id' => 'nullable|exists:countries,id',
+                'name' => 'required|string',
+                'block_id' => 'nullable|exists:blocks,id',
                 'area' => 'required|integer',
                 'description' => 'required|string',
             ], [
-                'country.exists' => 'Country does not exist',
+                'block.exists' => 'Country does not exist',
             ])->validate();
 
             try {
-                // Create the Block model
-                $block = Block::create(['location' => $payload['location'],
-                                        'country_id' => $payload['country_id'],
+                // Create the Field model
+                $field = Field::create(['name' => $payload['name'],
+                                        'block_id' => $payload['block_id'],
                                         'area' => $payload['area'],
                                         'description' => $payload['description']] );
 
                 // Assign details that are not nulled
-                if($payload['country_id']) $block->country_id = $payload['country_id'];
-                $block->save();
-                $this->emitTo('block.create-modal', 'show');
-                $this->emit('flashSuccess', 'Block created');
+                if($payload['block_id']) $field->block_id = $payload['block_id'];
+                $field->save();
+                $this->emitTo('field.create-modal', 'show');
+                $this->emit('flashSuccess', 'Field created');
             } catch (\exception $e) {
                 dd($e->getMessage());
-                $this->emit('flashError', 'Error trying to create block');
+                $this->emit('flashError', 'Error trying to create field');
             }
         } catch (ValidationException $e) {
             foreach($e->errors() as $key=>$error) {
                 $this->addError('create_' . $key, $error[0]);
             }
-            $this->emit('createBlockErrorBag', $this->getErrorBag());
+            $this->emit('createFieldErrorBag', $this->getErrorBag());
         }
     }
 
     public function update($payload) {
         try {
-            // Validate information and make sure location doesn't exist
+            // Validate information and make sure name doesn't exist
             $validated = Validator::make($payload, [
-                'id' => 'required|string|exists:blocks,id',
+                'id' => 'required|string|exists:fields,id',
                 'area' => 'required|integer',
                 'description' => 'required|string',
-                'location' => [
+                'name' => [
                     'required',
                     'string',
                 ],
-                'country_id' => 'exists:countries,id',
+                'block_id' => 'exists:blocks,id',
             ], [
-                'country.exists' => 'Country does not exist',
+                'block.exists' => 'Block does not exist',
             ])->validate();
 
             try {
-                // Create the block model
-                $block = Block::find($payload['id']);
-                $block->location = $payload['location'];
-                $block->area = $payload['area'];
+                // Create the field model
+                $field = Field::find($payload['id']);
+                $field->name = $payload['name'];
+                $field->area = $payload['area'];
 
-                $block->description = $payload['description'];
+                $field->description = $payload['description'];
 
 
-                $block->country_id = $payload['country_id'];
-                $block->save();
+                $field->block_id = $payload['block_id'];
+                $field->save();
 
-                $this->emitTo('block.edit-modal', 'show');
-                $this->emit('flashSuccess', 'Block updated');
+                $this->emitTo('field.edit-modal', 'show');
+                $this->emit('flashSuccess', 'Field updated');
             } catch (\exception $e) {
-                $this->emit('flashError', 'Error trying to update block');
+                $this->emit('flashError', 'Error trying to update Field');
             }
         } catch (ValidationException $e) {
             foreach($e->errors() as $key=>$error) {
                 $this->addError('edit_' . $key, $error[0]);
             }
-            $this->emit('editBlockErrorBag', $this->getErrorBag());
+            $this->emit('editFieldErrorBag', $this->getErrorBag());
         }
     }
 
@@ -120,12 +120,12 @@ class Management extends Component
         try {
             Validator::make(
                 ['id' => $id],
-                ['id' => 'required|exists:blocks,name']
+                ['id' => 'required|exists:fields,name']
             )->validate();
 
             try {
-                Block::find($id)->delete();
-                $this->emit('flashSuccess', 'Block delete');
+                Field::find($id)->delete();
+                $this->emit('flashSuccess', 'Field delete');
             } catch (\exception $e) {
                 $this->emit('flashError', 'Error trying to delete block');
             }
@@ -136,14 +136,14 @@ class Management extends Component
 
     public function render()
     {
-        return view('livewire.block.management', [
-            'blocks' => Block::filter([
+        return view('livewire.field.management', [
+            'fields' => Field::filter([
                 'search' => $this->search,
                 'sortField' => $this->sortField,
                 'sortAsc' => $this->sortAsc,
                 'country' => $this->country
             ])
-                ->with(['country'])
+                ->with(['block'])
                 ->paginate(14)
                 ->withQueryString()
         ]);

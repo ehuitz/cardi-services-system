@@ -1,26 +1,26 @@
 <x-modal wire:model="show" createModal="true">
 	<x-slot name="icon">
-		<x-icons.icon name="block"/>
+		<x-icons.icon name="field"/>
 	</x-slot>
 
 	<x-slot name="header">
-		Create Block
+		Create Field
 	</x-slot>
 
 	<x-slot name="fields">
 		<x-forms.input
-			label="Location"
-			id="create_location"
-			placeholder="Location"
-			wire:model.defer="location"
+			label="Field Name"
+			id="create_name"
+			placeholder="Field Name"
+			wire:model.defer="name"
 		/>
 
-		<x-forms.country-dropdown
-			:identifier="'create_country'"
-			:label="'Country'"
-			:id="'create_country'"
-			:name="'create_country'"
-			wire:model.defer="country"
+		<x-forms.block-dropdown
+			:identifier="'create_block'"
+			:label="'Block'"
+			:id="'create_block'"
+			:name="'create_block'"
+			wire:model.defer="block"
 		/>
         <x-forms.input
 			label="Area (acres)"

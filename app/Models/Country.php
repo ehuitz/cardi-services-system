@@ -30,4 +30,10 @@ class Country extends Model
     public function devices() {
         return $this->hasMany(Device::class);
     }
+
+    public function blocks() {
+        return $this->hasMany(Block::class);
+    }
+
+
 }
