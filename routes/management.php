@@ -40,9 +40,17 @@ Route::group(['prefix' => 'manage'], function() {
         return view('blocks.index');
         })->name('blocks.index');
 
-        Route::get('/fields', function() {
-            return view('fields.index');
-            })->name('fields.index');
+    Route::get('/fields', function() {
+    return view('fields.index');
+    })->name('fields.index');
+
+    Route::get('/origins', function() {
+    return view('origins.index');
+    })->name('origins.index');
+
+    Route::get('/crops', function() {
+    return view('crops.index');
+    })->name('crops.index');
 
 });
 

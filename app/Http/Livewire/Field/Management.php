@@ -120,7 +120,7 @@ class Management extends Component
         try {
             Validator::make(
                 ['id' => $id],
-                ['id' => 'required|exists:fields,name']
+                ['id' => 'required|exists:fields']
             )->validate();
 
             try {

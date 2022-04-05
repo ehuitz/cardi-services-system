@@ -5,7 +5,7 @@
         aria-haspopup="true"
     >
         <span class="inline-flex items-center">
-            <x-icons.icon name="settings"/>
+            <x-icons.icon name="seed"/>
             <span class="ml-4">Seed Management</span>
         </span>
         <x-icons.icon name="dropdown"/>
@@ -30,6 +30,7 @@
                 link="{{ route('blocks.index') }}"
                 active="{{ request()->routeIs('blocks.index') }}"
             /> --}}
+            <x-nav.crops/>
             <x-nav.fields/>
 
         </ul>
