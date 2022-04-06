@@ -29,6 +29,14 @@
 			wire:model.defer="model_no"
 		/>
 
+        <x-forms.project-dropdown
+        :identifier="'create_project'"
+        :label="'Project Funded By'"
+        :id="'create_project'"
+        :name="'create_project'"
+        wire:model.defer="project"
+    />
+
 		<x-forms.department-dropdown
 			:identifier="'create_department'"
 			:label="'Department'"

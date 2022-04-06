@@ -10,6 +10,7 @@ class CreateModal extends Modal
     public $assetTag = '';
     public $acquired_at = '';
     public $model_no = '';
+    public $project = '';
     public $department = '';
     public $serialNumber = '';
     public $macAddress = '';
@@ -26,6 +27,7 @@ class CreateModal extends Modal
             'acquired_at' => $this->acquired_at,
             'model_no' => $this->model_no,
             'department_id' => $this->department,
+            'project_id' => $this->project,
             'serial_number' => $this->serialNumber,
             'mac_address'=> $this->macAddress
         ]);
@@ -40,6 +42,7 @@ class CreateModal extends Modal
         $this->acquired_at = '';
         $this->model_no = '';
         $this->department = '';
+        $this->project = '';
         $this->serialNumber = '';
         $this->macAddress = '';
     }

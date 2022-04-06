@@ -19,6 +19,10 @@ class Device extends Model
         return $this->belongsTo(Department::class);
     }
 
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
+
     public function scopeFilter($query, array $filters) {
         $query->when($filters['search'] ?? false, fn($query, $search) =>
             $query->where(fn($query) =>

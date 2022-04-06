@@ -18,7 +18,7 @@ class CreateDevicesTable extends Migration
             $table->string('asset_tag')->unique();
             $table->date('acquired_at')->nullable();
             $table->string('model_no')->nullable();
-            $table->string('funded_by')->nullable();
+            $table->foreignId('project_id')->nullable();
             $table->string('room_no')->nullable();
             $table->foreignId('department_id')->nullable();
             $table->string('serial_number')->unique()->nullable();

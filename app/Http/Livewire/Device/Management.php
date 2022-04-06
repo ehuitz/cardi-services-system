@@ -18,6 +18,8 @@ class Management extends Component
     public $search;
     public $model;
     public $department;
+    public $project;
+
 
     protected $queryString = ['search', 'sortField', 'sortAsc', 'department'];
 
@@ -48,6 +50,7 @@ class Management extends Component
                 'acquired_at' => 'nullable|date',
                 'model_no' => 'nullable|string',
                 'department_id' => 'nullable|exists:departments,id',
+                'project_id' => 'nullable|exists:projects,id',
                 'serial_number' => 'nullable|string|unique:devices,serial_number',
                 'mac_address' => 'nullable|string|unique:devices,mac_address'
             ], [
@@ -65,6 +68,7 @@ class Management extends Component
                 // Assign details that are not nulled
                 if($payload['acquired_at']) $device->acquired_at = $payload['acquired_at'];
                 if($payload['model_no']) $device->model_no = $payload['model_no'];
+                if($payload['project_id']) $device->project_id = $payload['project_id'];
                 if($payload['department_id']) $device->department_id = $payload['department_id'];
                 if($payload['serial_number']) $device->serial_number = $payload['serial_number'];
                 if($payload['mac_address']) $device->mac_address = $payload['mac_address'];
@@ -96,6 +100,7 @@ class Management extends Component
                 'acquired_at' => 'nullable|date',
                 'model_no' => 'nullable|string',
                 'department' => 'nullable|exists:departments,id',
+                'project' => 'nullable|exists:departments,id',
                 'serial_number' => [
                     'nullable',
                     'string',
@@ -121,6 +126,7 @@ class Management extends Component
                 $device->acquired_at = $payload['acquired_at'];
                 $device->model_no = $payload['model_no'];
                 $device->department_id = $payload['department'];
+                $device->project_id = $payload['project'];
                 $device->serial_number = $payload['serial_number'];
                 $device->mac_address = $payload['mac_address'];
                 $device->save();
@@ -166,7 +172,7 @@ class Management extends Component
                 'model' => $this->model,
                 'department' => $this->department
             ])
-                ->with(['department'])
+                ->with(['department', 'project'])
                 ->paginate(10)
                 ->withQueryString()
         ]);

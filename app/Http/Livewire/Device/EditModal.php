@@ -13,6 +13,7 @@ class EditModal extends Modal
     public $acquired_at = '';
     public $model_no = '';
     public $department = '';
+    public $project = '';
     public $serialNumber = '';
     public $macAddress = '';
 
@@ -30,6 +31,7 @@ class EditModal extends Modal
             $this->acquired_at = $device->acquired_at;
             $this->model_no = $device->model_no;
 			$this->department = $device->department_id;
+            $this->project = $device->project_id;
             $this->serialNumber = $device->serial_number;
             $this->macAddress = $device->mac_address;
         }
@@ -42,6 +44,7 @@ class EditModal extends Modal
             'acquired_at' => $this->acquired_at,
             'model_no' => $this->model_no,
             'department' => $this->department == '0' ? null : $this->department,
+            'project' => $this->project == '0' ? null : $this->project,
             'serial_number' => $this->serialNumber,
             'mac_address'=> $this->macAddress
 		]);
