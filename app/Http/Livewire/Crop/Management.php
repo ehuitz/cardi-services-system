@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Crop;
 use Livewire\Component;
 use App\Models\Crop;
 use Livewire\WithPagination;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -12,11 +13,31 @@ class Management extends Component
 {
     use WithPagination;
 
+    public $sortField;
+    public $sortAsc;
+    public $search;
+    public $country;
+
+    protected $queryString = ['search', 'sortField', 'sortAsc'];
+
     protected $listeners = [
         'createCrop' => 'create',
         'updateCrop' => 'update',
         'deleteCrop' => 'delete',
     ];
+
+    public function updatingSearch() {
+        $this->resetPage();
+    }
+
+    public function sortBy($field) {
+        if ($this->sortField == $field)
+            $this->sortAsc = !$this->sortAsc;
+        else
+            $this->sortAsc = true;
+
+        $this->sortField = $field;
+    }
 
     public function create($payload) {
         try {
@@ -104,8 +125,12 @@ class Management extends Component
 
     public function render() {
         return view('livewire.crop.management', [
-            'crops' => Crop::first('updated_at')
+            'crops' => Crop::filter([
+            'search' => $this->search,
+            'sortField' => $this->sortField,
+            'sortAsc' => $this->sortAsc])
                 ->paginate(14)
+                ->withQueryString()
         ]);
     }
 }

@@ -16,9 +16,9 @@ class Management extends Component
     public $sortField;
     public $sortAsc;
     public $search;
-    public $country;
+    public $block;
 
-    protected $queryString = ['search', 'sortField', 'sortAsc','country'];
+    protected $queryString = ['search', 'sortField', 'sortAsc','block'];
 
     protected $listeners = [
         'createField' => 'create',
@@ -141,7 +141,7 @@ class Management extends Component
                 'search' => $this->search,
                 'sortField' => $this->sortField,
                 'sortAsc' => $this->sortAsc,
-                'country' => $this->country
+                'block' => $this->block
             ])
                 ->with(['block'])
                 ->paginate(14)

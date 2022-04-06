@@ -15,11 +15,6 @@ class Field extends Model
         return $this->belongsTo(Block::class);
     }
 
-    public function country() {
-        return $this->belongsTo(Country::class)->using(Block::class);
-    }
-
-
     public function scopeFilter($query, array $filters) {
         $query->when($filters['search'] ?? false, fn($query, $search) =>
             $query->where(fn($query) =>
@@ -34,8 +29,8 @@ class Field extends Model
             )
         );
 
-        $query->when($filters['country'] ?? false, fn($query, $country) =>
-            $query->where('country_id', $country)
+        $query->when($filters['block'] ?? false, fn($query, $block) =>
+            $query->where('block_id', $block)
         );
     }
 }

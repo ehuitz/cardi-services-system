@@ -11,10 +11,10 @@
     </x-slot>
 
     <x-slot name="searchBar">
-        <x-filters.country-dropdown wire:model="country"/>
+        <x-filters.block-dropdown wire:model="block"/>
         <x-forms.search-input
             wire:model.debounce.500ms="search"
-            placeholder="Search field name"/>
+            placeholder="Search field block"/>
     </x-slot>
 
     <x-slot name="columns">

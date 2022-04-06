@@ -7,6 +7,12 @@
         {{ __('Manage Crops') }}
     </x-slot>
 
+    <x-slot name="searchBar">
+        <x-forms.search-input
+            wire:model.debounce.500ms="search"
+            placeholder="Search Crop"/>
+    </x-slot>
+
     <x-slot name="columns">
         <th class="px-4 py-3">Name</th>
         <th class="px-4 py-3">Scientific Name</th>
