@@ -52,6 +52,10 @@ Route::group(['prefix' => 'manage'], function() {
     return view('crops.index');
     })->name('crops.index');
 
+    Route::get('/varieties', function() {
+        return view('varieties.index');
+        })->name('varieties.index');
+
 });
 
 ?>
