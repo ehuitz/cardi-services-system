@@ -8,8 +8,9 @@ use App\Http\Livewire\Modal;
 class CreateModal extends Modal
 {
     public $assetTag = '';
-    public $deviceModel = '';
-    public $country = '';
+    public $acquired_at = '';
+    public $model_no = '';
+    public $department = '';
     public $serialNumber = '';
     public $macAddress = '';
 
@@ -22,8 +23,9 @@ class CreateModal extends Modal
     public function emitEvent() {
         $this->emit('createDevice', [
             'asset_tag' => $this->assetTag,
-            'model_id' => $this->deviceModel,
-            'country_id' => $this->country,
+            'acquired_at' => $this->acquired_at,
+            'model_no' => $this->model_no,
+            'department_id' => $this->department,
             'serial_number' => $this->serialNumber,
             'mac_address'=> $this->macAddress
         ]);
@@ -35,8 +37,9 @@ class CreateModal extends Modal
 
     public function resetValues() {
         $this->assetTag = '';
-        $this->deviceModel = '';
-        $this->country = '';
+        $this->acquired_at = '';
+        $this->model_no = '';
+        $this->department = '';
         $this->serialNumber = '';
         $this->macAddress = '';
     }

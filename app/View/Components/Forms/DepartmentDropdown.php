@@ -2,10 +2,10 @@
 
 namespace App\View\Components\Forms;
 
-use App\Models\DeviceModel;
+use App\Models\Department;
 use Illuminate\View\Component;
 
-class ModelDropdown extends Component
+class DepartmentDropdown extends Component
 {
     public $label, $identifier, $name;
 
@@ -17,8 +17,8 @@ class ModelDropdown extends Component
 
     public function render()
     {
-        return view('components.forms.model-dropdown', [
-            "items" => DeviceModel::all(),
+        return view('components.forms.department-dropdown', [
+            "departments" => Department::all(),
             "label" => $this->label,
             "id" => $this->identifier,
             "name" => $this->name ?? $this->identifier,

@@ -10,23 +10,31 @@
 	<x-slot name="fields">
 		<x-forms.input
 			label="Asset Tag"
-			id="create_asset_tag"
+			id="create_date"
 			placeholder="Asset Tag"
 			wire:model.defer="assetTag"
 		/>
-		<x-forms.model-dropdown
-			:identifier="'create_model'"
-			:label="'Model'"
-			:id="'create_model'"
-			:name="'create_model'"
-			wire:model.defer="deviceModel"
+
+        <x-forms.date
+			label="Date Acquired"
+			id="acquired_at"
+			placeholder="Date Acquired"
+			wire:model.defer="acquired_at"
 		/>
-		<x-forms.country-dropdown
-			:identifier="'create_country'"
-			:label="'Country'"
-			:id="'create_country'"
-			:name="'create_country'"
-			wire:model.defer="country"
+
+        <x-forms.input
+			label="Model No"
+			id="create_model_no"
+			placeholder="Model No"
+			wire:model.defer="model_no"
+		/>
+
+		<x-forms.department-dropdown
+			:identifier="'create_department'"
+			:label="'Department'"
+			:id="'create_department'"
+			:name="'create_department'"
+			wire:model.defer="department"
 		/>
 		<x-forms.input
 			label="Serial Number"

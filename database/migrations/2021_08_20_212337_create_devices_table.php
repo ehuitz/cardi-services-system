@@ -16,8 +16,10 @@ class CreateDevicesTable extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->primary('asset_tag');
             $table->string('asset_tag')->unique();
-            $table->foreignId('model_id')->nullable();
-            $table->foreignId('country_id')->nullable();
+            $table->date('acquired_at')->nullable();
+            $table->string('model_no')->nullable();
+            $table->string('funded_by')->nullable();
+            $table->string('room_no')->nullable();
             $table->foreignId('department_id')->nullable();
             $table->string('serial_number')->unique()->nullable();
             $table->string('mac_address')->unique()->nullable();

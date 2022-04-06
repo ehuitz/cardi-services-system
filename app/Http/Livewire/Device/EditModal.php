@@ -10,8 +10,9 @@ class EditModal extends Modal
 {
     public $ogAsset = '';
     public $assetTag = '';
-    public $deviceModel = '';
-    public $country = '';
+    public $acquired_at = '';
+    public $model_no = '';
+    public $department = '';
     public $serialNumber = '';
     public $macAddress = '';
 
@@ -26,8 +27,9 @@ class EditModal extends Modal
 			$this->ogAsset = $params['id'];
 			$device = Device::find($this->ogAsset);
 			$this->assetTag = $device->asset_tag;
-			$this->deviceModel = $device->model_id;
-			$this->country = $device->country_id;
+            $this->acquired_at = $device->acquired_at;
+            $this->model_no = $device->model_no;
+			$this->department = $device->department_id;
             $this->serialNumber = $device->serial_number;
             $this->macAddress = $device->mac_address;
         }
@@ -37,8 +39,9 @@ class EditModal extends Modal
 		$this->emit('updateDevice', [
 			'og_asset' => $this->ogAsset,
 			'asset_tag' => $this->assetTag,
-            'model' => $this->deviceModel == '0' ? null : $this->deviceModel,
-            'country' => $this->country == '0' ? null : $this->country,
+            'acquired_at' => $this->acquired_at,
+            'model_no' => $this->model_no,
+            'department' => $this->department == '0' ? null : $this->department,
             'serial_number' => $this->serialNumber,
             'mac_address'=> $this->macAddress
 		]);

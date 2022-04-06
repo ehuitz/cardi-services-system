@@ -14,19 +14,27 @@
 			placeholder="Asset Tag"
 			wire:model.defer="assetTag"
 		/>
-		<x-forms.model-dropdown
-			:identifier="'edit_model'"
-			:label="'Model'"
-			:id="'edit_model'"
-			:name="'edit_model'"
-			wire:model.defer="deviceModel"
+
+        <x-forms.date
+            label="Date Acquired"
+            id="acquired_at"
+            placeholder="Date Acquired"
+            wire:model.defer="acquired_at"
+        />
+
+        <x-forms.input
+			label="Model No"
+			id="create_model_no"
+			placeholder="Model No"
+			wire:model.defer="model_no"
 		/>
-		<x-forms.country-dropdown
-			:identifier="'edit_country'"
-			:label="'Country'"
-			:id="'edit_country'"
-			:name="'edit_country'"
-			wire:model.defer="country"
+
+		<x-forms.department-dropdown
+			:identifier="'edit_department'"
+			:label="'Department'"
+			:id="'edit_department'"
+			:name="'edit_department'"
+			wire:model.defer="department"
 		/>
 		<x-forms.input
 			label="Serial Number"

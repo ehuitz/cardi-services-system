@@ -54,6 +54,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+        <script src="https://unpkg.com/flowbite@1.4.1/dist/datepicker.js"></script>
 
     </head>
     <body class="dark:bg-gray-900">

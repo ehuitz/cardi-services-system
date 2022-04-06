@@ -147,27 +147,7 @@ class DatabaseSeeder extends Seeder
             'staff' => true,
             'country_id' => $country1->id
         ]);
-        $user_staff2 = \App\Models\User::factory()->create([
-            'email' => 'staff@staff.com',
-            'staff' => true,
-            'country_id' => $country3->id
-        ]);
-        $user_user1 = \App\Models\User::factory()->create([
-            'email' => 'user@user.com',
-            'country_id' => $country1->id
-        ]);
-        $user_user2 = \App\Models\User::factory()->create([
-            'email' => 'user2@user.com',
-            'country_id' => $country2->id
-        ]);
-        $user_user3 = \App\Models\User::factory()->create([
-            'email' => 'user3@user.com',
-            'country_id' => $country3->id
-        ]);
-        $user_user4 = \App\Models\User::factory()->create([
-            'email' => 'user4@user.com',
-            'country_id' => $country4->id
-        ]);
+
         \App\Models\Category::factory()->create(['name' => 'Biometrics']);
         \App\Models\Category::factory()->create(['name' => 'Statistical Analysis']);
         \App\Models\Category::factory()->create(['name' => 'Market Research']);
@@ -191,86 +171,18 @@ class DatabaseSeeder extends Seeder
         $staff1->categories()->attach(['1','2','3']);
         $staff1->countries()->attach(['1', '2']);
 
-        $staff2 = \App\Models\Staff::factory()->create(['user_id' => $user_staff2->id]);
-        $staff2->categories()->attach(['1','2','3','4', '5']);
-        $staff2->countries()->attach(['3', '4']);
 
         $tickets_1 = \App\Models\Ticket::factory(1)->create([
             'country_id' => $country1->id,
             'category_id' => '1',
             'status_id' => '1',
-            'author_id' => $user_user1->id
-        ]);
-        $tickets_2 = \App\Models\Ticket::factory(1)->create([
-            'country_id' => $country2->id,
-            'category_id' => '3',
-            'status_id' => '1',
-            'author_id' => $user_user2->id
+            'author_id' => $user_staff1->id
         ]);
 
         foreach($tickets_1 as $ticket)
             $ticket->staff()->attach($staff1->id);
-        foreach($tickets_2 as $ticket)
-            $ticket->staff()->attach($staff1->id);
 
-        $charger = \App\Models\DeviceModel::create([
-            'name' => 'USB-C Power Supply',
-            'type' => 11,
-            'manufacturer' => 9
-        ]);
-        $laptop1 = \App\Models\DeviceModel::create([
-            'name' => 'Latitude 3390',
-            'type' => 4,
-            'manufacturer' => 9
-        ]);
-        $laptop2 = \App\Models\DeviceModel::create([
-            'name' => 'Latitude 5310',
-            'type' => 4,
-            'manufacturer' => 9
-        ]);
-        $chromebook = \App\Models\DeviceModel::create([
-            'name' => 'Chromebook 3100',
-            'type' => 4,
-            'manufacturer' => 9
-        ]);
-        $projector = \App\Models\DeviceModel::create([
-            'name' => 'XJ-F101W',
-            'type' => 7,
-            'manufacturer' => 8
-        ]);
-        \App\Models\Device::factory(5)->create([
-            'model_id' => $charger->id,
-            'country_id' => $country1->id
-        ]);
-        \App\Models\Device::factory(5)->create([
-            'model_id' => $charger->id,
-            'country_id' => $country2->id
-        ]);
-        \App\Models\Device::factory(5)->create([
-            'model_id' => $charger->id,
-            'country_id' => $country3->id
-        ]);
-        \App\Models\Device::factory(2)->create([
-            'model_id' => $laptop1->id,
-            'country_id' => $country1->id,
-        ]);
-        \App\Models\Device::factory(3)->create([
-            'model_id' => $laptop2->id,
-            'country_id' => $country4->id,
-        ]);
-        \App\Models\Device::factory(7)->create([
-            'model_id' => $chromebook->id,
-            'country_id' => $country3->id
-        ]);
-        \App\Models\Device::factory(2)->create([
-            'model_id' => $projector->id,
-            'country_id' => $country3->id
-        ]);
 
-        \App\Models\Device::factory(5)->create([
-            'model_id' => $charger->id,
-            'country_id' => $country1->id
-        ]);
 
         $dept1 = \App\Models\Department::create([
             'name' => 'CARDI Antigua and Barbuda',

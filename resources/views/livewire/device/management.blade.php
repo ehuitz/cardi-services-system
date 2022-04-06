@@ -1,5 +1,5 @@
 {{--
-    Asset Tag, Model, Country, Serial Number, Mac Address, Actions
+    Asset Tag, Model, Department, Serial Number, Mac Address, Actions
 --}}
 <x-table.layout
     itemCount="{{ $devices->count() }}"
@@ -12,8 +12,7 @@
     </x-slot>
 
     <x-slot name="searchBar">
-        <x-filters.device-model-dropdown wire:model="model"/>
-        <x-filters.country-dropdown wire:model="country"/>
+        <x-filters.department-dropdown wire:model="department"/>
         <x-forms.search-input
             wire:model.debounce.500ms="search"
             placeholder="Search tag, serial, mac..."/>
@@ -21,6 +20,7 @@
 
     <x-slot name="columns">
         <th class="px-4 py-3 text-center">
+
             <div class="flex items-center justify-center cursor-pointer" wire:click="sortBy('asset_tag')">
                 Asset Tag
                 <x-sort-icon
@@ -30,48 +30,29 @@
                 />
             </div>
         </th>
+        <th class="px-4 py-3 text-center">Date Acquired</th>
         <th class="px-4 py-3 text-center">Model</th>
-        <th class="px-4 py-3 text-center">Country</th>
-        <th class="px-4 py-3 text-center">
-            <div class="flex items-center justify-center cursor-pointer" wire:click="sortBy('serial_number')">
-                Serial Number
-                <x-sort-icon
-                    field="serial_number"
-                    :sortField="$sortField"
-                    :sortAsc="$sortAsc"
-                />
-            </div>
-        </th>
-        <th class="px-4 py-3 text-center">
-            <div class="flex items-center justify-center cursor-pointer" wire:click="sortBy('mac_address')">
-                MAC Address
-                <x-sort-icon
-                    field="mac_address"
-                    :sortField="$sortField"
-                    :sortAsc="$sortAsc"
-                />
-            </div>
-        </th>
+        <th class="px-4 py-3 text-center">Department</th>
+
+
         <th class="px-4 py-3 text-center w-40">Actions</th>
     </x-slot>
 
     <x-slot name="rows">
         @foreach($devices as $device)
         <tr id="{{ $device->asset_tag }}" class="text-gray-700 dark:text-gray-400">
+
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
                 {{ $device->asset_tag }}
             </td>
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
-                {{ $device->model->name ?? ''}}
+                {{ $device->acquired_at ?? ''}}
             </td>
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
-                {{ $device->country->name ?? ''}}
+                {{ $device->model_no ?? ''}}
             </td>
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
-                {{ $device->serial_number ?? ''}}
-            </td>
-            <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
-                {{ $device->mac_address ?? ''}}
+                {{ $device->department->name ?? ''}}
             </td>
             <td class="px-4 py-3 text-sm text-center space-x-4 dark:text-gray-200">
                 <x-table.actions id="{{ $device->asset_tag }}" updateModal="true"/>

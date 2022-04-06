@@ -15,14 +15,6 @@ class Device extends Model
 
     protected $guarded = [];
 
-    public function model() {
-        return $this->belongsTo(DeviceModel::class);
-    }
-
-    public function country() {
-        return $this->belongsTo(Country::class);
-    }
-
     public function department() {
         return $this->belongsTo(Department::class);
     }
@@ -42,12 +34,8 @@ class Device extends Model
             )
         );
 
-        $query->when($filters['model'] ?? false, fn($query, $model) =>
-            $query->where('model_id', $model)
-        );
-
-        $query->when($filters['country'] ?? false, fn($query, $country) =>
-            $query->where('country_id', $country)
+        $query->when($filters['department'] ?? false, fn($query, $department) =>
+            $query->where('department_id', $department)
         );
     }
 }

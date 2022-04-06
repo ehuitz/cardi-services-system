@@ -17,9 +17,9 @@ class Management extends Component
     public $sortAsc;
     public $search;
     public $model;
-    public $country;
+    public $department;
 
-    protected $queryString = ['search', 'sortField', 'sortAsc', 'model', 'country'];
+    protected $queryString = ['search', 'sortField', 'sortAsc', 'department'];
 
     protected $listeners = [
         'createDevice' => 'create',
@@ -45,14 +45,15 @@ class Management extends Component
             // Validate information and make sure name doesn't exist
             $validated = Validator::make($payload, [
                 'asset_tag' => 'required|string|unique:devices',
-                'model_id' => 'nullable|exists:device_models,id',
-                'country_id' => 'nullable|exists:countries,id',
+                'acquired_at' => 'nullable|date',
+                'model_no' => 'nullable|string',
+                'department_id' => 'nullable|exists:departments,id',
                 'serial_number' => 'nullable|string|unique:devices,serial_number',
                 'mac_address' => 'nullable|string|unique:devices,mac_address'
             ], [
                 'asset_tag.unique' => 'Asset tag already exists',
-                'model.exists' => 'Device model does not exist',
-                'country.exists' => 'Country does not exist',
+
+                'department.exists' => 'Department does not exist',
                 'serial_number.unique' => 'Serial number belongs to another asset',
                 'mac_address.unique' => 'MAC address belongs to another asset'
             ])->validate();
@@ -62,8 +63,9 @@ class Management extends Component
                 $device = Device::create(['asset_tag' => $payload['asset_tag']]);
 
                 // Assign details that are not nulled
-                if($payload['model_id']) $device->model_id = $payload['model_id'];
-                if($payload['country_id']) $device->country_id = $payload['country_id'];
+                if($payload['acquired_at']) $device->acquired_at = $payload['acquired_at'];
+                if($payload['model_no']) $device->model_no = $payload['model_no'];
+                if($payload['department_id']) $device->department_id = $payload['department_id'];
                 if($payload['serial_number']) $device->serial_number = $payload['serial_number'];
                 if($payload['mac_address']) $device->mac_address = $payload['mac_address'];
                 $device->save();
@@ -91,8 +93,9 @@ class Management extends Component
                     'string',
                     Rule::unique('devices')->ignore($payload['og_asset'], 'asset_tag')
                 ],
-                'model' => 'nullable|exists:device_models,id',
-                'country' => 'nullable|exists:countries,id',
+                'acquired_at' => 'nullable|date',
+                'model_no' => 'nullable|string',
+                'department' => 'nullable|exists:departments,id',
                 'serial_number' => [
                     'nullable',
                     'string',
@@ -105,8 +108,8 @@ class Management extends Component
                 ]
             ], [
                 'asset_tag.unique' => 'Asset tag already exists',
-                'model.exists' => 'Device model does not exist',
-                'country.exists' => 'Country does not exist',
+
+                'department.exists' => 'Department does not exist',
                 'serial_number.unique' => 'Serial number belongs to another asset',
                 'mac_address.unique' => 'MAC address belongs to another asset'
             ])->validate();
@@ -115,8 +118,9 @@ class Management extends Component
                 // Create the device model
                 $device = Device::find($payload['og_asset']);
                 $device->asset_tag = $payload['asset_tag'];
-                $device->model_id = $payload['model'];
-                $device->country_id = $payload['country'];
+                $device->acquired_at = $payload['acquired_at'];
+                $device->model_no = $payload['model_no'];
+                $device->department_id = $payload['department'];
                 $device->serial_number = $payload['serial_number'];
                 $device->mac_address = $payload['mac_address'];
                 $device->save();
@@ -160,9 +164,9 @@ class Management extends Component
                 'sortField' => $this->sortField,
                 'sortAsc' => $this->sortAsc,
                 'model' => $this->model,
-                'country' => $this->country
+                'department' => $this->department
             ])
-                ->with(['country', 'model'])
+                ->with(['department'])
                 ->paginate(10)
                 ->withQueryString()
         ]);
