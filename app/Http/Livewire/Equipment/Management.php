@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Device;
+namespace App\Http\Livewire\Equipment;
 
 use App\Models\Device;
 use Livewire\Component;
@@ -24,9 +24,9 @@ class Management extends Component
     protected $queryString = ['search', 'sortField', 'sortAsc', 'department'];
 
     protected $listeners = [
-        'createDevice' => 'create',
-        'updateDevice' => 'update',
-        'deleteDevice' => 'delete',
+        'createEquipment' => 'create',
+        'updateEquipment' => 'update',
+        'deleteEquipment' => 'delete',
     ];
 
     public function updatingSearch() {
@@ -72,19 +72,19 @@ class Management extends Component
                 if($payload['department_id']) $device->department_id = $payload['department_id'];
                 if($payload['serial_number']) $device->serial_number = $payload['serial_number'];
                 if($payload['mac_address']) $device->mac_address = $payload['mac_address'];
-                $device->type = 'device';
+                $device->type = 'equipment';
                 $device->save();
 
-                $this->emitTo('device.create-modal', 'show');
-                $this->emit('flashSuccess', 'Device created');
+                $this->emitTo('equipment.create-modal', 'show');
+                $this->emit('flashSuccess', 'Equipment created');
             } catch (\exception $e) {
-                $this->emit('flashError', 'Error trying to create device');
+                $this->emit('flashError', 'Error trying to create equipment');
             }
         } catch (ValidationException $e) {
             foreach($e->errors() as $key=>$error) {
                 $this->addError('create_' . $key, $error[0]);
             }
-            $this->emit('createDeviceErrorBag', $this->getErrorBag());
+            $this->emit('createEquipmentErrorBag', $this->getErrorBag());
         }
     }
 
@@ -132,16 +132,16 @@ class Management extends Component
                 $device->mac_address = $payload['mac_address'];
                 $device->save();
 
-                $this->emitTo('device.edit-modal', 'show');
+                $this->emitTo('equipment.edit-modal', 'show');
                 $this->emit('flashSuccess', 'Device updated');
             } catch (\exception $e) {
-                $this->emit('flashError', 'Error trying to update device');
+                $this->emit('flashError', 'Error trying to update equipment');
             }
         } catch (ValidationException $e) {
             foreach($e->errors() as $key=>$error) {
                 $this->addError('edit_' . $key, $error[0]);
             }
-            $this->emit('editDeviceErrorBag', $this->getErrorBag());
+            $this->emit('editEquipmentErrorBag', $this->getErrorBag());
         }
     }
 
@@ -156,7 +156,7 @@ class Management extends Component
                 Device::find($id)->delete();
                 $this->emit('flashSuccess', 'Device delete');
             } catch (\exception $e) {
-                $this->emit('flashError', 'Error trying to delete device');
+                $this->emit('flashError', 'Error trying to delete equipment');
             }
         } catch (ValidationException $e) {
             $this->emit('flashError', $e->errors()['id'][0]);
@@ -165,7 +165,7 @@ class Management extends Component
 
     public function render()
     {
-        return view('livewire.device.management', [
+        return view('livewire.equipment.management', [
             'devices' => Device::filter([
                 'search' => $this->search,
                 'sortField' => $this->sortField,
@@ -174,7 +174,7 @@ class Management extends Component
                 'department' => $this->department
             ])
                 ->with(['department', 'project'])
-                ->where('type', 'device')
+                ->where('type', 'equipment')
                 ->paginate(10)
                 ->withQueryString()
         ]);

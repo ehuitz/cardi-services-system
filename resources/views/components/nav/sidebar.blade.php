@@ -12,10 +12,7 @@
                 active="{{ request()->routeIs('tickets.index') }}"
                 link="{{ route('tickets.index') }}"
             />
-            <x-nav.side-nav-link title="Inventory" icon="desktop-computer"
-                active="{{ request()->routeIs('devices.index') }}"
-                link="{{ route('devices.index') }}"
-            />
+            <x-nav.inventory/>
 
             <x-nav.seeds/>
 

@@ -60,6 +60,10 @@ Route::group(['prefix' => 'manage'], function() {
             return view('projects.index');
             })->name('projects.index');
 
+            Route::get('/equipments', function() {
+                return view('equipments.index');
+                })->name('equipments.index');
+
 });
 
 ?>

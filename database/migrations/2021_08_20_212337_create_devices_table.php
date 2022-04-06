@@ -20,6 +20,7 @@ class CreateDevicesTable extends Migration
             $table->string('model_no')->nullable();
             $table->foreignId('project_id')->nullable();
             $table->string('room_no')->nullable();
+            $table->string('type')->nullable();
             $table->foreignId('department_id')->nullable();
             $table->string('serial_number')->unique()->nullable();
             $table->string('mac_address')->unique()->nullable();
