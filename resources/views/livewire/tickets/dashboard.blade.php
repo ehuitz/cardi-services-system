@@ -34,9 +34,9 @@
                         bg-gray-50 dark:text-gray-500 dark:bg-gray-800"
                     >
                         <th class="px-4 py-3">Request From</th>
-                        <th class="px-4 py-3">Request Title</th>
-                        <th class="px-4 py-3">Department Assigned</th>
-                        <th class="px-4 py-3">Country of Origin</th>
+                        <th class="px-4 py-3">Request Type</th>
+                        <th class="px-4 py-3">Department</th>
+                        <th class="px-4 py-3">Country</th>
                         <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Date</th>
                     </tr>
@@ -79,12 +79,12 @@
 
                         <td class="px-4 py-3 text-xs dark:text-gray-200">
                             <p class="line-clamp-1">
-                                {{ \Illuminate\Support\Str::limit($ticket->title, 20, $end='...') }}
+                                {{ \Illuminate\Support\Str::limit($ticket->category->name, 20, $end='...') }}
                             </p>
                         </td>
 
                         <td class="px-4 py-3 text-xs dark:text-gray-200">
-                            <p class="line-clamp-1">{{ $ticket->department->country->name ?? '' }} -  {{ $ticket->department->name ?? '' }}</p>
+                            <p class="line-clamp-1">{{ $ticket->department->name ?? '' }} </p>
                         </td>
 
 

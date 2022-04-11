@@ -47,3 +47,4 @@ Route::middleware([StaffOnly::class, 'auth'])->group(function() {
 });
 
 require __DIR__.'/requests.php';
+require __DIR__.'/vrequests.php';

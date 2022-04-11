@@ -56,13 +56,17 @@ Route::group(['prefix' => 'manage'], function() {
         return view('varieties.index');
         })->name('varieties.index');
 
-        Route::get('/projects', function() {
-            return view('projects.index');
-            })->name('projects.index');
+    Route::get('/projects', function() {
+    return view('projects.index');
+    })->name('projects.index');
 
-            Route::get('/equipments', function() {
-                return view('equipments.index');
-                })->name('equipments.index');
+    Route::get('/equipments', function() {
+    return view('equipments.index');
+    })->name('equipments.index');
+
+    Route::get('/furnitures', function() {
+        return view('furnitures.index');
+        })->name('furnitures.index');
 
 });
 

@@ -30,6 +30,11 @@
                 active="{{ request()->routeIs('equipments.index') }}"
             />
 
+            <x-nav.management-link title="Office Furniture"
+                link="{{ route('furnitures.index') }}"
+                active="{{ request()->routeIs('furnitures.index') }}"
+            />
+
         </ul>
     </template>
 </li>
