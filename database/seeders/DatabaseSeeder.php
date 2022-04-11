@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+
+        $this->call([
+            PermissionsTableSeeder::class,
+
+        ]);
+
         $country1 = \App\Models\Country::factory()->create([
             'name' => 'Antigua and Barbuda',
             'code' => 'ag',
