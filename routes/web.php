@@ -4,6 +4,7 @@ use App\Http\Middleware\StaffOnly;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\ChartJsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,6 @@ Route::middleware([StaffOnly::class, 'auth'])->group(function() {
 
 require __DIR__.'/requests.php';
 require __DIR__.'/vrequests.php';
+
+// Route::get('chartjs', [ChartJsController::class, 'index']);
+Route::get('/chart-js', [ChartJSController::class, 'index'])->name('chartjs.index');

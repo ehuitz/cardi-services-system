@@ -2,10 +2,10 @@
 
 namespace App\View\Components\Forms;
 
-use App\Models\Country;
+use App\Models\Permission;
 use Illuminate\View\Component;
 
-class CountrySelect extends Component
+class PermissionSelect extends Component
 {
     public $label, $identifier, $name, $val;
 
@@ -18,12 +18,12 @@ class CountrySelect extends Component
 
     public function render()
     {
-        return view('components.forms.country-select', [
-            "countries" => Country::where('type','External')->get(),
+        return view('components.forms.permission-select', [
+            "permissions" => Permission::all(),
             "label" => $this->label,
             "id" => $this->identifier,
             "name" => $this->name ?? $this->identifier,
-            
+            "val" => $this->val ?? ''
         ]);
     }
 }

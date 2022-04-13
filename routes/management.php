@@ -68,6 +68,15 @@ Route::group(['prefix' => 'manage'], function() {
         return view('furnitures.index');
         })->name('furnitures.index');
 
+
+    Route::get('/permissions', function() {
+     return view('permissions.index');
+    })->name('permissions.index');
+
+    Route::get('/roles', function() {
+        return view('roles.index');
+       })->name('roles.index');
+
 });
 
 ?>

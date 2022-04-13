@@ -30,4 +30,6 @@ class Staff extends Model
     public function tickets() {
         return $this->belongsToMany(Ticket::class)->using(StaffTicket::class);
     }
+
+    
 }

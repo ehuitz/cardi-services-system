@@ -22,6 +22,11 @@
 
             <x-nav.management/>
 
+            <x-nav.side-nav-link title="Reports" icon="ticket"
+            active="{{ request()->routeIs('chartjs.index') }}"
+            link="{{ route('chartjs.index') }}"
+        />
+
             <div class="px-6 my-6">
                 <a href="{{ route('vrequests.create') }}"
                     class="flex items-center justify-between px-4 py-2
@@ -33,6 +38,8 @@
                     <span class="ml-2" aria-hidden="true">+</span>
                 </a>
             </div>
+
+
         @else
 
         <x-nav.side-nav-link title="My Requests" icon="ticket"
