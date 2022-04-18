@@ -10,7 +10,7 @@
 	<x-slot name="fields">
 		<x-forms.input
 			label="Variety Name"
-			id="create_name"    
+			id="create_name"
 			placeholder="Variety Name"
 			wire:model.defer="name"
 		/>

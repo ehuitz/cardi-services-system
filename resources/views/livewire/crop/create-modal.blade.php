@@ -8,7 +8,7 @@
 	</x-slot>
 
 	<x-slot name="fields">
-		<x-forms.input label="Name" id="create_name" placeholder="Name" wire:model.defer="name"/>
+		<x-forms.input label="Common Name" id="create_name" placeholder="Common Name" wire:model.defer="name"/>
 
         <x-forms.input label="Scientific Name" id="create_scientific_name" placeholder="Scientific Name" wire:model.defer="scientific_name"/>
 

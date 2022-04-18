@@ -6,7 +6,7 @@
     >
         <span class="inline-flex items-center">
 
-            <span class="ml-4">Crops</span>
+            <span class="ml-4">Seed Variety</span>
         </span>
         <x-icons.icon name="dropdown"/>
     </button>
@@ -29,6 +29,10 @@
                 link="{{ route('crops.index') }}"
                 active="{{ request()->routeIs('crops.index') }}"
             />
+            <x-nav.sub-management-link title="Varieties"
+            link="{{ route('varieties.index') }}"
+            active="{{ request()->routeIs('varieties.index') }}"
+        />
 
         </ul>
     </template>

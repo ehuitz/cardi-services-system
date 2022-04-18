@@ -14,7 +14,7 @@
     </x-slot>
 
     <x-slot name="columns">
-        <th class="px-4 py-3">Name</th>
+        <th class="px-4 py-3">Common Name</th>
         <th class="px-4 py-3">Scientific Name</th>
         <th class="px-4 py-3">Possible Use</th>
         <th class="px-4 py-3">Seed Type</th>

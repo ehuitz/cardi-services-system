@@ -22,7 +22,7 @@
 
             <x-nav.management/>
 
-            <x-nav.side-nav-link title="Reports" icon="ticket"
+            <x-nav.side-nav-link title="Charts" icon="ticket"
             active="{{ request()->routeIs('chartjs.index') }}"
             link="{{ route('chartjs.index') }}"
         />

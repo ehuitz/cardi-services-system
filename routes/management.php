@@ -56,6 +56,8 @@ Route::group(['prefix' => 'manage'], function() {
         return view('varieties.index');
         })->name('varieties.index');
 
+   
+
     Route::get('/projects', function() {
     return view('projects.index');
     })->name('projects.index');

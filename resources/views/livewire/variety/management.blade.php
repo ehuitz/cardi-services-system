@@ -34,7 +34,13 @@
 
     <x-slot name="rows">
         @foreach($varieties as $variety)
-        <tr id="{{ $variety->name }}" class="text-gray-700 dark:text-gray-400">
+        <tr id="{{ $variety->name }}" class="text-gray-700 dark:text-gray-400 cursor-pointer hover:bg-gray-200
+            dark:hover:bg-gray-600"
+            @if(request()->route()->named('variety.index'))
+                        onclick="window.location='{{ route('variety.show', $variety->id) }}';"
+                        @else
+                        onclick="window.location='{{ route('variety.show', $variety->id) }}';"
+                        @endif>
             <td class="px-4 py-3 text-sm dark:text-gray-200">
                 {{ $variety->name }}
             </td>
