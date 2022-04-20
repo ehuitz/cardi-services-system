@@ -1,10 +1,10 @@
 <div class="flex antialiased text-gray-800">
     <div class="md:flex overflow-x-hidden w-full max-h-96 sm:grid sm:grid-cols-1">
         <div class="flex flex-col flex-auto pr-0 md:pr-4">
-            <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 dark:bg-gray-700 h-full">
-                <div class="flex flex-col h-full overflow-x-auto overflow-y-scroll mb-4 p-4 min-h-100
+            <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 dark:bg-gray-700">
+                <div class="flex flex-col overflow-x-auto overflow-y-scroll mb-4 p-4 min-h-100
                     scrollbar scrollbar-thumb-blue-500 scrollbar-track-gray-100">
-                    <div class="flex flex-col h-full">
+                    <div class="flex flex-col">
                         <div class="grid grid-cols-12 gap-y-2">
                             @foreach($messages as $message)
                                 @if ($message->author == auth()->user())
@@ -16,14 +16,14 @@
                         </div>
                     </div>
                 </div>
-    
-                <div class="flex flex-row items-center h-16 bg-gray-200 
+
+                <div class="flex flex-row items-center h-16 bg-gray-200
                     dark:bg-gray-800 w-full px-4 py-4 rounded-b-2xl">
                     <div class="flex-grow ml-2">
                         <div class="relative w-full">
                             <input type="text" id="message_content" name="message_content"
-                                class="flex w-full border dark:border-gray-700 rounded-xl 
-                                focus:outline-none dark:bg-gray-600 dark:text-gray-100 
+                                class="flex w-full border dark:border-gray-700 rounded-xl
+                                focus:outline-none dark:bg-gray-600 dark:text-gray-100
                                 focus:border-blue-300 pl-4 h-10 border-gray-300
                                 dark:focus:border-blue-600"
                             />
@@ -44,9 +44,9 @@
                 </div>
             </div>
         </div>
-    
+
         {{-- <x-ticket.author/> --}}
-     
+
     </div>
 </div>
 

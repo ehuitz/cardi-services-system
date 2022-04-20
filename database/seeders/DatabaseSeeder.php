@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PermissionsTableSeeder::class,
+            RolesTableSeeder::class,
+            PermissionRoleTableSeeder::class,
 
         ]);
 
@@ -153,6 +155,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'staff' => true,
             'country_id' => $country1->id
+        ]);
+
+        $this->call([
+            RoleUserTableSeeder::class,
+
         ]);
 
         \App\Models\Category::factory()->create(['name' => 'Biometrics']);

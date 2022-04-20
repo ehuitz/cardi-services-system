@@ -1,18 +1,18 @@
 @if (request()->user()->is_staff())
     <div class="flex md:flex-row flex-col antialiased text-gray-800 gap-4">
-        <div class="md:w-2/5 overflow-x-hidden min-h-200 sm:w-full">
+        <div class="md:w-2/5 overflow-x-hidden sm:w-full">
 
             @livewire('tickets.author')
 
         </div>
-        <div class="md:w-3/5 overflow-x-hidden min-h-full sm:w-full ">
+        <div class="md:w-3/5 overflow-x-hidden h-screen sm:w-full ">
             <div class="flex flex-col flex-auto pr-0 md:pr-4 ">
-                <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 dark:bg-gray-700 h-full">
+                <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 dark:bg-gray-700">
                     <div
-                        class="flex flex-col flex-col-reverse h-full overflow-x-auto overflow-y-scroll mb-4 p-4 h-screen
+                        class="flex flex-col flex-col-reverse overflow-x-auto overflow-y-scroll mb-4 p-4
                     scrollbar scrollbar-thumb-green-300 scrollbar-track-gray-200
                     dark:scrollbar-thumb-green-500 dark:scrollbar-track-gray-600">
-                        <div class="flex flex-col-reverse h-full">
+                        <div class="flex flex-col-reverse">
                             <div class="grid grid-cols-12 gap-y-2">
                                 @foreach ($allMessages as $message)
                                     @if ($message['author_id'] == auth()->user()->id)
@@ -36,7 +36,7 @@
                                 focus:border-green-300 pl-4 h-10 border-gray-300
                                 dark:focus:border-green-600 dark:placeholder-gray-400
                                 @error('message') border-red-500 dark:border-red-400 @enderror"
-                                    placeholder="Send a message..." />
+                                    placeholder="Send a message..." autofocus />
                             </div>
                         </div>
                         <div class="ml-4">

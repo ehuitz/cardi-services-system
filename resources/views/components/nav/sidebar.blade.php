@@ -18,8 +18,9 @@
         />
             <x-nav.inventory/>
 
+            @can('seed_access')
             <x-nav.seeds/>
-
+            @endcan
             <x-nav.management/>
 
             <x-nav.side-nav-link title="Charts" icon="ticket"

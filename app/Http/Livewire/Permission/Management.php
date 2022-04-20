@@ -96,6 +96,7 @@ class Management extends Component
     public function render() {
         return view('livewire.permission.management', [
             'permissions' => Permission::first('updated_at')
+                ->orderBy('title', 'asc')
                 ->paginate(14)
         ]);
     }
