@@ -12,6 +12,8 @@ class EditModal extends Modal
 	public $name = '';
 	public $email = '';
 	public $country = '';
+    public $role = [];
+
 
 	protected $listeners = [
 		'openEditModal' => 'show',
@@ -26,6 +28,8 @@ class EditModal extends Modal
 			$this->name = $user->name;
 			$this->email = $user->email;
 			$this->country = $user->country_id;
+            $this->role = $user->roles->pluck('id');
+
 		}
 	}
 
@@ -34,7 +38,8 @@ class EditModal extends Modal
 			'id' => $this->id_,
 			'name' => $this->name,
 			'email' => $this->email,
-			'country' => $this->country
+			'country' => $this->country,
+            'role' => $this->role
 		]);
 	}
 

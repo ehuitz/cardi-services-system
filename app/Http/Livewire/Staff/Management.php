@@ -128,10 +128,14 @@ class Management extends Component
 
     public function render()
     {
+        abort_if(Gate::denies('management_user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         return view('livewire.staff.management', [
             'allStaff' => Staff::latest()
-                ->with(['countries', 'categories', 'user', 'departments'])
+                ->with(['countries', 'categories', 'user', 'departments', 'roles'])
                 ->paginate(10)
         ]);
+
+
     }
 }

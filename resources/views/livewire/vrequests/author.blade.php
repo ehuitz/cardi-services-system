@@ -109,14 +109,7 @@
 
                         <div class="flex text-md text-black dark:text-gray-300 mt-2 gap-4">
 
-                            <span>
 
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </span>
                             Eligibility per year: <b> {{ $vrequest->year_eligible . ' day(s)' }} </b>
 
 
@@ -124,14 +117,7 @@
 
                         <div class="flex text-md text-black dark:text-gray-300 mt-2 gap-4">
 
-                            <span>
 
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </span>
                             Balance brought forward: <b> {{ $vrequest->brought_forward . ' day(s)' }} </b>
 
 
@@ -139,14 +125,7 @@
 
                         <div class="flex text-md text-black dark:text-gray-300 mt-2 gap-4">
 
-                            <span>
 
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </span>
                             Amount Previously taken: <b> {{ $vrequest->previously_taken . ' day(s)' }} </b>
 
 
@@ -154,28 +133,14 @@
 
                         <div class="flex text-md text-black dark:text-gray-300 mt-2 gap-4">
 
-                            <span>
 
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </span>
                             Current Eligibility: <b> {{ $vrequest->current_eligible . ' day(s)' }} </b>
 
 
                         </div>
                         <div class="flex text-md text-black dark:text-gray-300 mt-2  mb-2 gap-4">
 
-                            <span>
 
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </span>
                             Balance Carried Forward: <b> {{ $vrequest->balance_forward . ' day(s)' }} </b>
 
 

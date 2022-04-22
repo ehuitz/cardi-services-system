@@ -15,6 +15,7 @@ class Staff extends Model
         return $this->belongsTo(User::class);
     }
 
+
     public function departments() {
         return $this->belongsToMany(Department::class)->using(DepartmentStaff::class);
     }
@@ -31,5 +32,5 @@ class Staff extends Model
         return $this->belongsToMany(Ticket::class)->using(StaffTicket::class);
     }
 
-    
+
 }

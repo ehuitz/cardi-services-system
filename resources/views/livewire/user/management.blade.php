@@ -1,6 +1,6 @@
 <x-table.layout
     itemCount="{{ $users->count() }}"
-    noItemsMessage="No Staff Available"
+    noItemsMessage="No Users Available"
     createModal="true"
 >
 
@@ -11,6 +11,8 @@
     <x-slot name="columns">
         <th class="px-4 py-3">Name</th>
         <th class="px-4 py-3">Country</th>
+        <th class="px-4 py-3">Roles</th>
+
         <th class="px-4 py-3">Actions</th>
     </x-slot>
 
@@ -39,6 +41,14 @@
             </td>
             <td class="px-4 py-3 text-sm dark:text-gray-200">
                 {{ $user->country->name ?? '' }}
+            </td>
+            <td class="px-4 py-3 text-sm dark:text-gray-200">
+                @foreach($user->roles as $key => $item)
+                <span class="badge badge-info">{{ $item->title }}</span>
+                @if (!$loop->last)
+                            ,
+                        @endif
+            @endforeach
             </td>
             <td class="px-4 py-3 text-sm space-x-4 dark:text-gray-200">
                 <x-table.actions id="{{ $user->id }}" updateModal="true"/>

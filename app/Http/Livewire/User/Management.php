@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Models\RoleUser;
 use Livewire\Component;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,8 @@ class Management extends Component
                     Password::defaults()
                 ],
                 'password_confirmation' => 'required',
-                'country' => 'nullable|int'
+                'country' => 'nullable|int',
+                'role'=> 'nullable|array',
             ])->validate();
 
             try {
@@ -42,6 +44,9 @@ class Management extends Component
                     $user->country_id = $payload['country'];
                     $user->save();
                 }
+
+                if($payload['role']) $staff->roles()->attach($payload['role']);
+
                 $this->emitTo('user.create-modal', 'show');
                 $this->emit('flashSuccess', 'User created');
             } catch (\exception $e) {
@@ -62,7 +67,8 @@ class Management extends Component
                 'id' => 'required',
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users,email,' . $payload['id'],
-                'country' => 'nullable|int'
+                'country' => 'nullable|int',
+                'role' => 'nullable|array'
             ])->validate();
 
             try {
@@ -72,6 +78,11 @@ class Management extends Component
                 $user->email = $payload['email'];
                 if ($payload['country']) $user->country_id = $payload['country'];
                 $user->save();
+
+                RoleUser::where('user_id', $user->id )->delete();
+                $user->roles()->attach($payload['role']);
+
+
                 $this->emitTo('user.edit-modal', 'show');
                 $this->emit('flashSuccess', 'User updated');
             } catch (\exception $e) {

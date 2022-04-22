@@ -21,6 +21,13 @@
       <x-forms.country-dropdown :identifier="'create_country'" :label="'Country'"
          :id="'create_country'" :name="'create_country'" wire:model.defer="country"
       />
+      <x-forms.role-select
+			:identifier="'create_role'"
+			:label="'Assigned Roles'"
+			:name="'create_role'"
+			:val="''"
+			wire:model.defer="role"
+		/>
    </x-slot>
 
    <x-slot name="buttonText">

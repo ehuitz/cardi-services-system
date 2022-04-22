@@ -12,6 +12,8 @@ class CreateModal extends Modal
     public $password = '';
     public $password_confirmation = '';
     public $country = '';
+    public $role = [];
+
 
     protected $listeners = [
         'createUserErrorBag' => 'createUserErrorBag',
@@ -25,7 +27,8 @@ class CreateModal extends Modal
             'email' => $this->email,
             'password' => $this->password,
             'password_confirmation' => $this->password_confirmation,
-            'country' => $this->country
+            'country' => $this->country,
+            'role' => $this->role
         ]);
     }
 
@@ -39,6 +42,7 @@ class CreateModal extends Modal
         $this->password = '';
         $this->password_confirmation = '';
         $this->country = '';
+        $this->role = '';
     }
 
     public function render()

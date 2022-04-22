@@ -27,6 +27,10 @@
          :name="'edit_country'"
          wire:model.defer="country"
       />
+
+      <x-forms.role-select :identifier="'edit_role'" :label="'Assigned Roles'"
+			:name="'edit_role'" :val="''" wire:model.defer="role"
+		/>
    </x-slot>
 
    <x-slot name="buttonText">

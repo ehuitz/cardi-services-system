@@ -16,18 +16,23 @@
             active="{{ request()->routeIs('vrequests.index') }}"
             link="{{ route('vrequests.index') }}"
         />
-            <x-nav.inventory/>
-
-            @can('seed_access')
-            <x-nav.seeds/>
+             @can('inventory_access')
+                <x-nav.inventory/>
             @endcan
-            <x-nav.management/>
 
-            <x-nav.side-nav-link title="Charts" icon="ticket"
-            active="{{ request()->routeIs('chartjs.index') }}"
-            link="{{ route('chartjs.index') }}"
-        />
+            @can('seeds_access')
+                <x-nav.seeds/>
+            @endcan
 
+            @can('management_access')
+                <x-nav.management/>
+            @endcan
+
+            @can('charts_access')
+                <x-nav.side-nav-link title="Charts" icon="ticket"
+                active="{{ request()->routeIs('chartjs.index') }}"
+                link="{{ route('chartjs.index') }}" />
+           @endcan
             <div class="px-6 my-6">
                 <a href="{{ route('vrequests.create') }}"
                     class="flex items-center justify-between px-4 py-2
