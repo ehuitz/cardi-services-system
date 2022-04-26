@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVarietiesTable extends Migration
+class CreateVarietyFieldsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateVarietiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('varieties', function (Blueprint $table) {
+        Schema::create('variety_fields', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('origin_id')->nullable();
-            $table->foreignId('crop_id')->nullable();
-            $table->string('type');
+            $table->foreignId('variety_id')->nullable();
+            $table->foreignId('field_id')->nullable();
+            $table->date('start_date');
             $table->string('description');
-            $table->string('use');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateVarietiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('varieties');
+        Schema::dropIfExists('variety_fields');
     }
 }

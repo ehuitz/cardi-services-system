@@ -17,6 +17,10 @@ class Variety extends Model
         return $this->belongsTo(Origin::class);
     }
 
+    public function crop() {
+        return $this->belongsTo(Crop::class);
+    }
+
     public function scopeFilter($query, array $filters) {
         $query->when($filters['search'] ?? false, fn($query, $search) =>
             $query->where(fn($query) =>

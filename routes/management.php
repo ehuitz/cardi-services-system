@@ -12,6 +12,11 @@ Route::group(['prefix' => 'manage'], function() {
     return view('types.index');
 })->name('types.index');
 
+Route::get('/storages', function() {
+    return view('storages.index');
+})->name('storages.index');
+
+
 
    Route::get('/statuses', function() {
        return view('status.index');

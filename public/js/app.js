@@ -5062,6 +5062,10 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__.default.data('data', function () {
     toggleFieldManagementMenu: function toggleFieldManagementMenu() {
       this.isFieldManagementMenuOpen = !this.isFieldManagementMenuOpen;
     },
+    isStorageManagementMenuOpen: false,
+    toggleStorageManagementMenu: function toggleStorageManagementMenu() {
+      this.isStorageManagementMenuOpen = !this.isStorageManagementMenuOpen;
+    },
     isCropManagementMenuOpen: false,
     toggleCropManagementMenu: function toggleCropManagementMenu() {
       this.isCropManagementMenuOpen = !this.isCropManagementMenuOpen;
