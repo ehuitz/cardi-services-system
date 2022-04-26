@@ -18,7 +18,7 @@
                 <div class="grid grid-cols-8 gap-6">
                         <!-- Name -->
                         <div class="md:col-span-4 sm:col-span-8">
-                            <x-breeze.label for="name" :value="__('Name')" />
+                            <x-breeze.label for="name" :value="__('Full Name')" />
 
                             <x-breeze.input id="name" class="block mt-1 w-full" type="text" name="name"
                                 :value="old('name')" autofocus />
@@ -36,6 +36,8 @@
                         <div class="md:col-span-8 sm:col-span-8">
                             <x-forms.register :countries="$countries" />
                         </div>
+
+
                         <div class="md:col-span-8 sm:col-span-8">
                             <x-breeze.label for="phone" :value="__('Phone')" />
 
@@ -57,13 +59,12 @@
                         </div>
 
                         <div class="md:col-span-4 sm:col-span-8">
-                            <x-breeze.label for="type" :value="__('Company Type')" />
-
-                            <x-breeze.input id="type" class="block mt-1 w-full" type="text" name="type"
-                                :value="old('type')" />
+                            <div class="md:col-span-8 sm:col-span-8">
+                                <x-forms.company :types="$types" />
+                            </div>
                         </div>
 
-                        <div class="md:col-span-4 sm:col-span-8">
+                        <div class="md:col-span-4 sm:col-span-8 mt-3">
                             <x-breeze.label for="activities" :value="__('Activities')" />
 
                             <x-breeze.input id="activities" class="block mt-1 w-full" type="text" name="activities"

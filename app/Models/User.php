@@ -56,6 +56,10 @@ class User extends Authenticatable
         return $this->belongsTo(Country::class);
     }
 
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);

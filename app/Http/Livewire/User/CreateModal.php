@@ -12,6 +12,7 @@ class CreateModal extends Modal
     public $password = '';
     public $password_confirmation = '';
     public $country = '';
+    public $type = '';
     public $role = [];
 
 
@@ -28,6 +29,7 @@ class CreateModal extends Modal
             'password' => $this->password,
             'password_confirmation' => $this->password_confirmation,
             'country' => $this->country,
+            'type' => $this->type,
             'role' => $this->role
         ]);
     }
@@ -42,6 +44,7 @@ class CreateModal extends Modal
         $this->password = '';
         $this->password_confirmation = '';
         $this->country = '';
+        $this->type = '';
         $this->role = '';
     }
 

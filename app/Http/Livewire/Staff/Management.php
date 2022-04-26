@@ -11,6 +11,10 @@ use App\Models\CountryStaff;
 use App\Models\CategoryStaff;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Gate;
+use Symfony\Component\HttpFoundation\Response;
+
+
 
 class Management extends Component
 {
@@ -132,7 +136,7 @@ class Management extends Component
 
         return view('livewire.staff.management', [
             'allStaff' => Staff::latest()
-                ->with(['countries', 'categories', 'user', 'departments', 'roles'])
+                ->with(['countries', 'categories', 'user', 'departments'])
                 ->paginate(10)
         ]);
 

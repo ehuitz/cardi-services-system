@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Vrequests;
 
 use App\Models\Vrequest;
+use App\Models\Vstatus;
 use App\Models\File;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -19,6 +20,8 @@ class Author extends Component
     public $quotations;
     public $contracts;
     public $file;
+    public $statuses;
+
 
 
 
@@ -34,6 +37,9 @@ class Author extends Component
         // $this->contracts = File::where('vrequest_id', '=', request()->vrequest->id)->where('type', '=', 'contract')->get()->toArray();
 
         $this->vrequest = request()->vrequest;
+
+        $this->statuses = Vstatus::where('vrequest_id', request()->vrequest->id)
+        ->get();
     }
 
 

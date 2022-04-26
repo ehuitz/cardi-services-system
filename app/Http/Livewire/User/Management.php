@@ -30,6 +30,7 @@ class Management extends Component
                 ],
                 'password_confirmation' => 'required',
                 'country' => 'nullable|int',
+                'type' => 'nullable|int',
                 'role'=> 'nullable|array',
             ])->validate();
 
@@ -42,6 +43,10 @@ class Management extends Component
                 ]);
                 if ($payload['country']) {
                     $user->country_id = $payload['country'];
+                    $user->save();
+                }
+                if ($payload['type']) {
+                    $user->type_id = $payload['type'];
                     $user->save();
                 }
 
@@ -68,6 +73,7 @@ class Management extends Component
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users,email,' . $payload['id'],
                 'country' => 'nullable|int',
+                'type' => 'nullable|int',
                 'role' => 'nullable|array'
             ])->validate();
 
@@ -77,6 +83,8 @@ class Management extends Component
                 $user->name = $payload['name'];
                 $user->email = $payload['email'];
                 if ($payload['country']) $user->country_id = $payload['country'];
+                $user->save();
+                if ($payload['type']) $user->type_id = $payload['type'];
                 $user->save();
 
                 RoleUser::where('user_id', $user->id )->delete();
@@ -121,7 +129,7 @@ class Management extends Component
     {
         return view('livewire.user.management', [
             'users' => User::latest()
-                ->with(['country'])
+                ->with(['country', 'type'])
                 ->paginate(10)
         ]);
     }

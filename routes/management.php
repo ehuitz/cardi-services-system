@@ -8,6 +8,11 @@ Route::group(['prefix' => 'manage'], function() {
        return view('countries.index');
    })->name('countries.index');
 
+   Route::get('/types', function() {
+    return view('types.index');
+})->name('types.index');
+
+
    Route::get('/statuses', function() {
        return view('status.index');
    })->name('status.index');
@@ -56,7 +61,7 @@ Route::group(['prefix' => 'manage'], function() {
         return view('varieties.index');
         })->name('varieties.index');
 
-   
+
 
     Route::get('/projects', function() {
     return view('projects.index');

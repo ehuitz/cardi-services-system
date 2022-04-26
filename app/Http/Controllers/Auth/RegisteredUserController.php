@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Country;
+use App\Models\Type;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -22,7 +23,8 @@ class RegisteredUserController extends Controller
     public function create()
     {
         return view('auth.register', [
-            "countries" => Country::where('type','External')->get()
+            "countries" => Country::where('type','External')->get(),
+            "types" => Type::all()
         ]);
     }
 
@@ -42,8 +44,6 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone' => 'required|string',
             'position' => 'required|string',
-            'company_name' => 'required|string',
-            'type' => 'required|string',
             'activities' => 'required|string',
         ]);
 
@@ -53,8 +53,8 @@ class RegisteredUserController extends Controller
             'country_id' => $request->country,
             'phone' => $request->phone,
             'position' => $request->position,
-            'company_name' => $request->company_name,
-            'type' => $request->type,
+            'type_id' => $request->type,
+            'type_id' => $request->type,
             'activities' => $request->activities,
             'password' => Hash::make($request->password),
         ]);

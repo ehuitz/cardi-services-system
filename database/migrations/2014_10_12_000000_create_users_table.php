@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('position')->nullable();
             $table->string('company_name')->nullable();
-            $table->string('type')->nullable();
+            $table->foreignId('type_id')->nullable();
             $table->string('activities')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

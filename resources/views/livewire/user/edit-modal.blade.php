@@ -28,6 +28,14 @@
          wire:model.defer="country"
       />
 
+      <x-forms.type-dropdown
+         :identifier="'edit_type'"
+         :label="'Company Type'"
+         :id="'edit_type'"
+         :name="'edit_type'"
+         wire:model.defer="type"
+      />
+
       <x-forms.role-select :identifier="'edit_role'" :label="'Assigned Roles'"
 			:name="'edit_role'" :val="''" wire:model.defer="role"
 		/>

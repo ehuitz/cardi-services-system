@@ -34,6 +34,8 @@
                 active="{{ request()->routeIs('status.index') }}" />
             <x-nav.management-link title="Projects" link="{{ route('projects.index') }}"
                 active="{{ request()->routeIs('projects.index') }}" />
+            <x-nav.management-link title="Company Types" link="{{ route('types.index') }}"
+                active="{{ request()->routeIs('types.index') }}" />
         </ul>
     </template>
 </li>

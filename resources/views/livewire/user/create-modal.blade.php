@@ -21,6 +21,9 @@
       <x-forms.country-dropdown :identifier="'create_country'" :label="'Country'"
          :id="'create_country'" :name="'create_country'" wire:model.defer="country"
       />
+      <x-forms.type-dropdown :identifier="'create_type'" :label="'Company Type'"
+         :id="'create_type'" :name="'create_type'" wire:model.defer="type"
+      />
       <x-forms.role-select
 			:identifier="'create_role'"
 			:label="'Assigned Roles'"
