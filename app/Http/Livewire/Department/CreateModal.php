@@ -22,10 +22,7 @@ class CreateModal extends Modal
     public function emitEvent() {
         $this->emit('createDepartment', [
             'name' => $this->name,
-            // 'model_id' => $this->deviceModel,
             'country_id' => $this->country,
-            // 'serial_number' => $this->serialNumber,
-            // 'mac_address'=> $this->macAddress
         ]);
     }
 
@@ -35,10 +32,7 @@ class CreateModal extends Modal
 
     public function resetValues() {
         $this->name = '';
-        // $this->deviceModel = '';
         $this->country = '';
-        // $this->serialNumber = '';
-        // $this->macAddress = '';
     }
 
     public function render()

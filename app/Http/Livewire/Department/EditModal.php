@@ -10,10 +10,7 @@ class EditModal extends Modal
 {
     public $oid = '';
     public $name = '';
-    // public $deviceModel = '';
     public $country = '';
-    // public $serialNumber = '';
-    // public $macAddress = '';
 
 	protected $listeners = [
 		'openEditModal' => 'show',
@@ -26,10 +23,7 @@ class EditModal extends Modal
 			$this->oid = $params['id'];
 			$department = Department::find($this->oid);
 			$this->name = $department->name;
-			// $this->deviceModel = $device->model_id;
 			$this->country = $department->country_id;
-            // $this->serialNumber = $device->serial_number;
-            // $this->macAddress = $device->mac_address;
         }
 	}
 

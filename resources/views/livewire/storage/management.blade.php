@@ -10,6 +10,9 @@
     <x-slot name="columns">
         <th class="px-4 py-3">Number</th>
         <th class="px-4 py-3">Type</th>
+        <th class="px-4 py-3">Capacity</th>
+        <th class="px-4 py-3">Repository</th>
+        <th class="px-4 py-3">Location</th>
         <th class="px-4 py-3">Actions</th>
     </x-slot>
 
@@ -21,6 +24,17 @@
             </td>
             <td class="px-4 py-3 text-sm dark:text-gray-200">
                 {{ $storage->type }}
+            </td>
+            <td class="px-4 py-3 text-sm dark:text-gray-200">
+                {{ $storage->capacity. ' '. $storage->capacity_units }}
+            </td>
+
+            <td class="px-4 py-3 text-sm dark:text-gray-200">
+                {{ $storage->repository }}
+            </td>
+
+            <td class="px-4 py-3 text-sm dark:text-gray-200">
+                {{ $storage->department->name }}
             </td>
 
             <td class="px-4 py-3 text-sm space-x-4 dark:text-gray-200">

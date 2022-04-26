@@ -7,8 +7,12 @@ use App\Http\Livewire\Modal;
 
 class CreateModal extends Modal
 {
-    public $name = '';
-    public $code = '';
+    public $number = '';
+    public $type = '';
+    public $capacity_units = '';
+    public $capacity = '';
+    public $repository = '';
+    public $department = '';
 
     protected $listeners = [
         'createStorageErrorBag' => 'createStorageErrorBag',
@@ -18,12 +22,12 @@ class CreateModal extends Modal
 
     public function emitEvent() {
         $this->emit('createStorage', [
-            'name' => $this->name,
+            'number' => $this->number,
             'type' => $this->type,
             'capacity_units' => $this->capacity_units,
             'capacity' => $this->capacity,
             'repository' => $this->repository,
-            'department' => $this->department,
+            'department_id' => $this->department,
 
 
 
@@ -35,7 +39,7 @@ class CreateModal extends Modal
     }
 
     public function resetValues() {
-        $this->name = '';
+        $this->number = '';
         $this->type = '';
         $this->capacity_units = '';
         $this->capacity = '';

@@ -9,16 +9,12 @@ use App\Http\Livewire\Modal;
 class EditModal extends Modal
 {
 	public $id_;
-	public $name;
+	public $number;
     public $type;
     public $capacity_units;
     public $capacity;
     public $repository;
-    public $deparment;
-
-
-
-
+    public $department = '';
 
 	protected $listeners = [
 		'openEditModal' => 'show',
@@ -30,24 +26,24 @@ class EditModal extends Modal
 		if ($params) {
 			$this->id_ = $params['id'];
 			$storage = Storage::find($this->id_);
-			$this->name = $storage->name;
+			$this->number = $storage->number;
             $this->type = $storage->type;
             $this->capacity_units = $storage->capacity_units;
             $this->capacity = $storage->capacity;
             $this->repository = $storage->repository;
-            $this->department = $storage->department;
+			$this->department = $storage->department_id;
 		}
 	}
 
 	public function emitEvent() {
 		$this->emit('updateStorage', [
 			'id' => $this->id_,
-			'name' => $this->name,
+			'number' => $this->number,
             'type' => $this->type,
             'capacity_units' => $this->capacity_units,
             'capacity' => $this->capacity,
             'repository' => $this->repository,
-            'department' => $this->department
+            'department' => $this->department == '0' ? null : $this->department,
 
 		]);
 	}

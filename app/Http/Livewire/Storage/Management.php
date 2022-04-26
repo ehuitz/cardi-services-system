@@ -26,7 +26,7 @@ class Management extends Component
                 'number' => 'required|string|unique:storages,number',
                 'type' => 'required|string',
                 'capacity_units' => 'required|string',
-                'capacity' => 'required|decimal',
+                'capacity' => 'required|numeric',
                 'repository' => 'required|string',
                 'department_id' => 'nullable|exists:departments,id',
 
@@ -58,8 +58,7 @@ class Management extends Component
                 'capacity_units' => 'nullable|string',
                 'capacity' => 'nullable|string',
                 'repository' => 'nullable|string',
-                'department' => 'nullable|int',
-
+                'department_id' => 'exists:departments,id',
 
 
             ])->validate();
@@ -73,7 +72,7 @@ class Management extends Component
                 $storage->capacity = $payload['capacity'];
                 $storage->repository = $payload['repository'];
 
-                if ($payload['department']) $user->department_id = $payload['department'];
+                if ($payload['department']) $storage->department_id = $payload['department'];
 
                 $storage->save();
                 $this->emitTo('storage.edit-modal', 'show');
