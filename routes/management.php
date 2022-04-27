@@ -16,6 +16,10 @@ Route::get('/storages', function() {
     return view('storages.index');
 })->name('storages.index');
 
+Route::get('/varietyFields', function() {
+    return view('varietyFields.index');
+})->name('varietyFields.index');
+
 
 
    Route::get('/statuses', function() {

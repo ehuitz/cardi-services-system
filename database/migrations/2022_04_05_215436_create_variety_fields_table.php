@@ -15,10 +15,10 @@ class CreateVarietyFieldsTable extends Migration
     {
         Schema::create('variety_fields', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('variety_id')->nullable();
-            $table->foreignId('field_id')->nullable();
+            $table->foreignId('variety_id');
+            $table->foreignId('field_id');
             $table->date('start_date');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
