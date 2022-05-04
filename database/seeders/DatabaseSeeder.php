@@ -15,6 +15,84 @@ class DatabaseSeeder extends Seeder
     {
 
 
+        $activity1 = \App\Models\Activity::create([
+            'name' => 'Advocacy',
+            'code' => 'advocacy',
+        ]);
+        $activity2 = \App\Models\Activity::create([
+            'name' => 'Agro-Processing',
+            'code' => 'agro-process',
+        ]);
+        $activity3 = \App\Models\Activity::create([
+            'name' => 'Crop Production',
+            'code' => 'crop-prod',
+        ]);
+        $activity4 = \App\Models\Activity::create([
+            'name' => 'Education/Training',
+            'code' => 'edu-training',
+        ]);
+        $activity5 = \App\Models\Activity::create([
+            'name' => 'Livestock Production',
+            'code' => 'livestock-prod',
+        ]);
+        $activity6 = \App\Models\Activity::create([
+            'name' => 'Policy Development',
+            'code' => 'policy-dev',
+        ]);
+        $activity7 = \App\Models\Activity::create([
+            'name' => 'Research',
+            'code' => 'research',
+        ]);
+        $activity8 = \App\Models\Activity::create([
+            'name' => 'Retail-Agricultural Inputs',
+            'code' => 'retail-agri-inputs',
+        ]);
+        $activity9 = \App\Models\Activity::create([
+            'name' => 'Retail-Agricultural Produce and Value Added Products',
+            'code' => 'retail-agri-produce-value-add',
+        ]);
+        $activity10 = \App\Models\Activity::create([
+            'name' => 'Other',
+            'code' => 'other',
+        ]);
+
+
+        $type1 = \App\Models\Type::create([
+            'name' => 'MSME',
+            'code' => 'msme',
+        ]);
+
+        $type2 = \App\Models\Type::create([
+            'name' => 'Large Enterprise',
+            'code' => 'lent',
+        ]);
+
+        $type3 = \App\Models\Type::create([
+            'name' => 'Tertiary Education Institution',
+            'code' => 'tei',
+        ]);
+
+        $type4 = \App\Models\Type::create([
+            'name' => 'Research Institution',
+            'code' => 'ri',
+        ]);
+
+        $type5 = \App\Models\Type::create([
+            'name' => 'Government Agency/Department/Ministry',
+            'code' => 'gov',
+        ]);
+
+        $type6 = \App\Models\Type::create([
+            'name' => 'Civil Society Organization/Non-Governmental Organization',
+            'code' => 'cso-ngo',
+        ]);
+
+        $type7 = \App\Models\Type::create([
+            'name' => 'Other',
+            'code' => 'other',
+        ]);
+
+
         $this->call([
             PermissionsTableSeeder::class,
             RolesTableSeeder::class,
@@ -154,7 +232,9 @@ class DatabaseSeeder extends Seeder
         $user_staff1 = \App\Models\User::factory()->create([
             'email' => 'admin@admin.com',
             'staff' => true,
-            'country_id' => $country1->id
+            'country_id' => $country1->id,
+            'type_id' => $type3->id,
+            'activity_id' => $activity4->id,
         ]);
 
         $this->call([

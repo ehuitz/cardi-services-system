@@ -1,3 +1,5 @@
+
+@section('title', 'Service Requests')
 <x-slot name="header">
     @if(request()->user()->is_staff())
         Dashboard

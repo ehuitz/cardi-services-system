@@ -11,10 +11,14 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\CountryStaff;
 use App\Models\CategoryStaff;
+use Symfony\Component\HttpFoundation\Response;
+
+
 
 
 class RequestController extends Controller
 {
+
     // index --> show user's tickets /requests
     public function index() {
         return view('requests.index');
@@ -30,12 +34,8 @@ class RequestController extends Controller
     // create --> create ticket page /request
     public function create() {
 
-     // dd(Country::where('type', 'LIKE' ,'External')->get());
-
-        return view('requests.create', [
-            'countries' => Country::all(),
-            'categories' => Category::all()
-
+            return view('requests.create', [
+            'categories' => Category::all(),
         ]);
     }
 
@@ -44,7 +44,8 @@ class RequestController extends Controller
         $request->validate([
             'subject' => 'required',
             'content' => 'required',
-            'category' => 'required'
+            'category' => 'required',
+            'quotation' => 'required'
         ]);
 
         $status = Status::where('name', 'Ongoing')->first();
@@ -64,11 +65,12 @@ class RequestController extends Controller
             'phone' => auth()->user()->phone,
             'position' => auth()->user()->position,
             'name' => auth()->user()->company_name,
-            'type' => auth()->user()->type,
+            'type' => auth()->user()->type->name,
             'activities' => auth()->user()->activities,
             'category_id' => $request->category,
             'status_id' => $status->id,
             'author_id' => auth()->user()->id,
+            'quotation' => $request->quotation,
         ]);
 
         if ($staff->isNotEmpty()) {

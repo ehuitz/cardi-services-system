@@ -1,4 +1,7 @@
+@section('title', 'Login')
 <x-guest-layout>
+
+
     <x-breeze.auth-card>
         <x-slot name="logo">
             <a href="/">

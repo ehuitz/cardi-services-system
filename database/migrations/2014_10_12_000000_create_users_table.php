@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('position')->nullable();
             $table->string('company_name')->nullable();
             $table->foreignId('type_id')->nullable();
-            $table->string('activities')->nullable();
+            $table->foreignId('activity_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

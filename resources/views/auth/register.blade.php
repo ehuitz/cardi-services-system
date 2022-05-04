@@ -1,3 +1,5 @@
+@section('title', 'Register')
+
 <x-guest-layout>
     <x-breeze.auth-card>
         <x-slot name="logo">
@@ -64,11 +66,10 @@
                             </div>
                         </div>
 
-                        <div class="md:col-span-4 sm:col-span-8 mt-3">
-                            <x-breeze.label for="activities" :value="__('Activities')" />
-
-                            <x-breeze.input id="activities" class="block mt-1 w-full" type="text" name="activities"
-                                :value="old('activities')" />
+                        <div class="md:col-span-4 sm:col-span-8">
+                            <div class="md:col-span-8 sm:col-span-8">
+                                <x-forms.active :activities="$activities" />
+                            </div>
                         </div>
 
                         <!-- Password -->

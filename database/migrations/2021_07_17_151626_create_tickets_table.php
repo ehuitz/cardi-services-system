@@ -27,6 +27,7 @@ class CreateTicketsTable extends Migration
             $table->string('name')->nullable();
             $table->string('type')->nullable();
             $table->string('activities')->nullable();
+            $table->string('quotation')->nullable();
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ class User extends Authenticatable
         'position',
         'company_name',
         'type',
-        'activities',
+        'activity',
     ];
 
     /**
@@ -58,6 +58,10 @@ class User extends Authenticatable
 
     public function type() {
         return $this->belongsTo(Type::class);
+    }
+
+    public function activity() {
+        return $this->belongsTo(Activity::class);
     }
 
     public function roles()

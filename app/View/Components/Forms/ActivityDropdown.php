@@ -2,28 +2,26 @@
 
 namespace App\View\Components\Forms;
 
-use App\Models\Country;
+use App\Models\Activity;
 use Illuminate\View\Component;
 
-class CountrySelect extends Component
+class ActivityDropdown extends Component
 {
-    public $label, $identifier, $name, $val;
+    public $label, $identifier, $name;
 
-    public function __construct($label, $identifier, $name, $val) {
+    public function __construct($label, $identifier, $name) {
         $this->label = $label;
         $this->identifier = $identifier;
         $this->name = $name ?? $this->identifier;
-        $this->val = $val;
     }
 
     public function render()
     {
-        return view('components.forms.country-select', [
-            "countries" => Country::where('type','External')->get(),
+        return view('components.forms.activity-dropdown', [
+            "activities" => Activity::all(),
             "label" => $this->label,
             "id" => $this->identifier,
             "name" => $this->name ?? $this->identifier,
-
         ]);
     }
 }
