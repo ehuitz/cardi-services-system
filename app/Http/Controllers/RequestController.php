@@ -66,7 +66,7 @@ class RequestController extends Controller
             'position' => auth()->user()->position,
             'name' => auth()->user()->company_name,
             'type' => auth()->user()->type->name,
-            'activities' => auth()->user()->activities,
+            'activities' => auth()->user()->activity->name,
             'category_id' => $request->category,
             'status_id' => $status->id,
             'author_id' => auth()->user()->id,

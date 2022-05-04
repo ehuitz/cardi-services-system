@@ -47,6 +47,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone' => 'required|string',
             'position' => 'required|string',
+            'company_name' => 'required|string',
+            'type' => 'required|integer',
+            'activity' => 'required|integer'
         ]);
 
         $user = User::create([

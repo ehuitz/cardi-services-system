@@ -231,6 +231,9 @@ class DatabaseSeeder extends Seeder
 
         $user_staff1 = \App\Models\User::factory()->create([
             'email' => 'admin@admin.com',
+            'phone' => '+5014220203',
+            'position' => 'Administrator',
+            'company_name' => 'CARDI',
             'staff' => true,
             'country_id' => $country1->id,
             'type_id' => $type3->id,
