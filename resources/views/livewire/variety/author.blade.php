@@ -1,3 +1,4 @@
+
 <div class="flex md:flex-row flex-col antialiased text-gray-800 gap-2">
 
 
@@ -18,7 +19,7 @@
                   <img src="https://ahsti.com.ph/wp-content/uploads/2019/08/AH-J505-1.png" alt="Two each of gray, white, and black shirts arranged on table." class="object-center object-cover">
                 </div>
                 <div class="sm:col-span-8 lg:col-span-7">
-                    <h1 class="text-2xl font-extrabold text-gray-900 sm:pr-12">CORN</h1>
+                    <h1 class="text-2xl font-extrabold text-gray-900 sm:pr-12">{{$variety->crop->name}}</h1>
                   <h2 class="text-2xl font-extrabold text-gray-900 sm:pr-12">{{$variety->name}}</h2>
 
 
@@ -30,29 +31,13 @@
                       <div>
 
 
-                        <h2 class="mb-3">Average Plant Height:    <b> 210cm</b></h2>
+                        <h2 class="mb-3">Name:<b>{{$variety->name}}</b></h2>
 
-                        <h2 class = "mb-3">Average Days to tasselling:<b> 48 days</b></h2>
-                        <h2 class = "mb-3">Average Days to Silking: <b> 52 days</b></h2>
-                        <h2 class = "mb-3">Ear Height <b> 125-130cm: </b></h2>
-                        <h2 class = "mb-3">Average Days to Maturity:  <b> 110 days</b></h2>
-                        <h2 class = "mb-3">Yield Potential: <b>Between 1360kg to 1810kg in optimal conditions </b></h2>
-                        <h2 class = "mb-3">Color of Seed:</h2>
-
-                        <fieldset class="mt-4 mb-2">
-                          <div class="flex items-center space-x-3">
-                            <!--
-                              Active and Checked: "ring ring-offset-1"
-                              Not Active and Checked: "ring-2"
-                            -->
-                            <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
-                              <input type="radio" name="color-choice" value="Yellow" class="sr-only" aria-labelledby="color-choice-2-label">
-                              <p id="color-choice-2-label" class="sr-only">Yellow</p>
-                              <span aria-hidden="true" class="h-8 w-8 bg-yellow-300 border border-black border-opacity-10 rounded-full"></span>
-                            </label>
-                          </div>
-                        </fieldset>
-
+                        <h2 class = "mb-3">Origin: <b> {{$variety->origin->institution. ' - '. $variety->origin->country->name}}</b></h2>
+                        <h2 class = "mb-3">Crop:<b> {{$variety->crop->name . ' - '. $variety->crop->scientific_name}}</b></h2>
+                        <h2 class = "mb-3">Type: <b> {{$variety->type}}</b></h2>
+                        <h2 class = "mb-3">Description<b> {{$variety->description}}</b></h2>
+                        <h2 class = "mb-3">Use: <b>{{$variety->use}}</b></h2>
                       </div>
                     </form>
                   </section>

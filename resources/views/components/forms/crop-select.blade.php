@@ -20,7 +20,7 @@
             @endforeach
         @else
             @foreach($items as $item)
-                <option value="{{ $item->id }}" @if($val==$item->id) selected @endif>{{ $item->intro_name. ' - '.$item->country->name }}</option>
+                <option value="{{ $item->id }}" @if($val==$item->id) selected @endif>{{ $item->name. ' - '.$item->scientific_name }}</option>
             @endforeach
         @endif
     </select>

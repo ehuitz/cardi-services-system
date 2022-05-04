@@ -1,3 +1,5 @@
+@section('title', 'Crops')
+
 <x-table.layout
     itemCount="{{ $crops->count() }}"
     noItemsMessage="No Crops Available"
@@ -35,7 +37,7 @@
                 <span class="px-4 py-3 text-sm dark:text-gray-200">{{ \Illuminate\Support\Str::limit($crop->use, 20, $end='...') ?? ''}}</span>
             </td>
             <td class="px-4 py-3 text-sm dark:text-gray-200">
-                {{ $crop->type }}
+                {{ $crop->type }} Seed
             </td>
             <td class="px-4 py-3 text-sm space-x-4 dark:text-gray-200">
                 <x-table.actions id="{{ $crop->id }}" updateModal="true"/>

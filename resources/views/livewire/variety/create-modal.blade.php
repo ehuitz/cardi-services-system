@@ -15,6 +15,14 @@
 			wire:model.defer="name"
 		/>
 
+        <x-forms.crop-dropdown
+			:identifier="'create_crop'"
+			:label="'Crop'"
+			:id="'create_crop'"
+			:name="'create_crop'"
+			wire:model.defer="crop"
+		/>
+
 		<x-forms.origin-dropdown
 			:identifier="'create_origin'"
 			:label="'Origin'"
@@ -22,12 +30,12 @@
 			:name="'create_origin'"
 			wire:model.defer="origin"
 		/>
-        <x-forms.input
-			label="Seed Type"
-			id="create_type"
-			placeholder="Seed Type"
-			wire:model.defer="type"
-		/>
+        <x-forms.seed-type
+        :identifier="'create_type'"
+        :name="'create_type'"
+        id="create_type"
+        wire:model.defer="type"/>
+
         <x-forms.input
 			label="Description"
 			id="create_description"

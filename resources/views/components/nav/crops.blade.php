@@ -6,7 +6,7 @@
     >
         <span class="inline-flex items-center">
 
-            <span class="ml-4">Seed Variety</span>
+            <span class="ml-4">Crops</span>
         </span>
         <x-icons.icon name="dropdown"/>
     </button>

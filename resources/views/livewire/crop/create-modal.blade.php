@@ -1,3 +1,4 @@
+
 <x-modal wire:model="show" createModal="true">
 	<x-slot name="icon">
 		<x-icons.icon name="seed"/>
@@ -14,8 +15,10 @@
 
         <x-forms.input label="Possible Use" id="create_use" placeholder="Possible Use" wire:model.defer="use"/>
 
-        <x-forms.input label="Seed Type" id="create_type" placeholder="Seed Type" wire:model.defer="type"/>
-	</x-slot>
+        <x-forms.seed-type id="create_type" wire:model.defer="type"/>
+
+
+    </x-slot>
 
 
 

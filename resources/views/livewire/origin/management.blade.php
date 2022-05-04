@@ -1,3 +1,4 @@
+@section('title', 'Origins')
 
 <x-table.layout
     itemCount="{{ $origins->count() }}"

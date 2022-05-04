@@ -20,12 +20,11 @@
 			:name="'edit_origin'"
 			wire:model.defer="origin"
 		/>
-        <x-forms.input
-        label="Seed Type"
+        <x-forms.seed-type
+        :identifier="'edit_type'"
+        :name="'edit_type'"
         id="edit_type"
-        placeholder="Seed Type"
-        wire:model.defer="type"
-    />
+        wire:model.defer="type"/>
 
         <x-forms.input label="Description" id="edit_description" placeholder="Description" wire:model.defer="description" />
 

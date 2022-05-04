@@ -12,6 +12,8 @@ class Detail extends Component
     public $vID;
     public $name;
     public $origin;
+    public $crop;
+
     public $type;
     public $description;
     public $use;
@@ -21,6 +23,7 @@ class Detail extends Component
         $this->vID = $this->variety->id;
         $this->name = $this->variety->name;
         $this->origin = $this->variety->origin;
+        $this->crop = $this->variety->crop;
         $this->type = $this->variety->type;
         $this->description = $this->variety->description;
         $this->use = $this->variety->use;

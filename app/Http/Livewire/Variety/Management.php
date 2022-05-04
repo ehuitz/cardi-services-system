@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Variety;
 
 use App\Models\Variety;
+use App\Models\Crop;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Validation\Rule;
@@ -17,6 +18,7 @@ class Management extends Component
     public $sortAsc;
     public $search;
     public $origin;
+    public $crop;
 
     protected $queryString = ['search', 'sortField', 'sortAsc','origin'];
 
@@ -44,7 +46,7 @@ class Management extends Component
             // Validate information and make sure name doesn't exist
             $validated = Validator::make($payload, [
                 'name' => 'required|string',
-                'origin_id' => 'nullable|exists:origins,id',
+                'origin_id' => 'required|exists:origins,id',
                 'type' => 'required|string',
                 'description' => 'required|string',
                 'use' => 'required|string',
@@ -147,9 +149,10 @@ class Management extends Component
                 'search' => $this->search,
                 'sortField' => $this->sortField,
                 'sortAsc' => $this->sortAsc,
-                'origin' => $this->origin
+                'origin' => $this->origin,
+                'crop' => $this->crop
             ])
-                ->with(['origin'])
+                ->with(['origin', 'crop'])
                 ->paginate(14)
                 ->withQueryString()
         ]);

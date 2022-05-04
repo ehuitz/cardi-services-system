@@ -9,6 +9,7 @@ class CreateModal extends Modal
 {
     public $name = '';
     public $origin = '';
+    public $crop = '';
     public $type = '';
     public $description = '';
     public $use = '';
@@ -24,6 +25,7 @@ class CreateModal extends Modal
         $this->emit('createVariety', [
             'name' => $this->name,
             'origin_id' => $this->origin,
+            'crop_id' => $this->crop,
             'type' => $this->type,
             'description' => $this->description,
             'use' => $this->use,
@@ -37,6 +39,7 @@ class CreateModal extends Modal
     public function resetValues() {
         $this->name = '';
         $this->origin = '';
+        $this->crop = '';
         $this->type = '';
         $this->description = '';
         $this->use = '';
