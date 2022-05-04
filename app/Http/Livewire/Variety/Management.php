@@ -47,6 +47,7 @@ class Management extends Component
             $validated = Validator::make($payload, [
                 'name' => 'required|string',
                 'origin_id' => 'required|exists:origins,id',
+                'crop_id' => 'required|exists:crops,id',
                 'type' => 'required|string',
                 'description' => 'required|string',
                 'use' => 'required|string',
@@ -58,6 +59,7 @@ class Management extends Component
                 // Create the Variety model
                 $variety = Variety::create(['name' => $payload['name'],
                                         'origin_id' => $payload['origin_id'],
+                                        'crop_id' => $payload['crop_id'],
                                         'type' => $payload['type'],
                                         'description' => $payload['description'],
                                         'use' => $payload['use']
@@ -65,7 +67,9 @@ class Management extends Component
 
 
                 // Assign details that are not nulled
-                if($payload['origin_id']) $variety->origin_id = $payload['origin_id'];
+                // if($payload['origin_id']) $variety->origin_id = $payload['origin_id'];
+
+
                 $variety->save();
                 $this->emitTo('variety.create-modal', 'show');
                 $this->emit('flashSuccess', 'Variety created');
@@ -94,8 +98,10 @@ class Management extends Component
                     'string',
                 ],
                 'origin_id' => 'exists:origins,id',
+                'crop_id' => 'exists:crops,id',
             ], [
                 'origin.exists' => 'Origin does not exist',
+                'crop.exists' => 'Crop does not exist',
             ])->validate();
 
             try {
@@ -109,6 +115,7 @@ class Management extends Component
 
 
                 $variety->origin_id = $payload['origin_id'];
+                $variety->crop_id = $payload['crop_id'];
                 $variety->save();
 
                 $this->emitTo('variety.edit-modal', 'show');

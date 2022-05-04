@@ -4,6 +4,8 @@ use App\Http\Middleware\StaffOnly;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\ImageUploadController;
+
 use App\Http\Controllers\ChartJsController;
 
 /*
@@ -34,6 +36,10 @@ Route::get('/dashboard', function() {
 Route::post('/store', [FileUploadController::class, 'store'])
 ->middleware('auth')
 ->name('files.store');
+
+Route::post('/image-store', [ImageUploadController::class, 'store'])
+->middleware('auth')
+->name('images.store');
 
 Route::post('/api/create-message', [MessageController::class, 'store'])
     ->middleware('auth')

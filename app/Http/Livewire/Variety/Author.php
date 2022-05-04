@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Variety;
 
 use App\Models\Variety;
+use App\Models\Image;
 use App\Models\Origin;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -14,17 +15,16 @@ class Author extends Component
     use WithFileUploads;
 
     public $variety;
-    public $quotations;
-    public $contracts;
-    public $file;
+
+    public $images;
 
 
 
     public function mount() {
         $this->variety = Variety::where('id', request()->variety->id);
 
-        // $this->quotations = File::where('variety_id', '=', request()->variety->id)->where('type', '=', 'quotation')->get()->toArray();
-        // $this->contracts = File::where('variety_id', '=', request()->variety->id)->where('type', '=', 'contract')->get()->toArray();
+        $this->images = Image::where('variety_id', '=', request()->variety->id)->where('type', '=', 'image')->get()->toArray();
+
 
         $this->variety = request()->variety;
     }

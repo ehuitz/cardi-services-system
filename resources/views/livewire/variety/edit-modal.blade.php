@@ -13,6 +13,13 @@
 
         <x-forms.input label="Variety Name" id="edit_name" placeholder="name" wire:model.defer="name" />
 
+        <x-forms.crop-dropdown
+			:identifier="'edit_crop'"
+			:label="'Crop'"
+			:id="'edit_crop'"
+			:name="'edit_crop'"
+			wire:model.defer="crop"
+		/>
             <x-forms.origin-dropdown
 			:identifier="'edit_origin'"
 			:label="'Origin'"
@@ -21,9 +28,9 @@
 			wire:model.defer="origin"
 		/>
         <x-forms.seed-type
-        :identifier="'edit_type'"
-        :name="'edit_type'"
-        id="edit_type"
+        :identifier="'create_type'"
+        :name="'create_type'"
+        id="create_type"
         wire:model.defer="type"/>
 
         <x-forms.input label="Description" id="edit_description" placeholder="Description" wire:model.defer="description" />

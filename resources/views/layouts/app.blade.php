@@ -58,7 +58,7 @@
     </template>
     {{ $styles ?? '' }}
     @livewireStyles
-
+    @yield('styles')
     <!-- Scripts -->
     @livewireScripts
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -81,6 +81,8 @@
         </h2>
         {{ $slot }}
     </x-nav.navigation>
+
+    @yield('scripts')
 </body>
 
 </html>
