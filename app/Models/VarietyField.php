@@ -12,6 +12,7 @@ class VarietyField extends Model
     protected $guarded = [];
 
     protected $casts = [
+
         'created_at' => 'date:M-d-y h:i a',
         'updated_at' => 'date:M-d-y h:i a'
     ];

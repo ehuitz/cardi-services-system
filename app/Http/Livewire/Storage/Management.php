@@ -12,11 +12,29 @@ class Management extends Component
 {
     use WithPagination;
 
+    public $sortField;
+    public $sortAsc;
+    public $search;
+    public $department;
+
     protected $listeners = [
         'createStorage' => 'create',
         'updateStorage' => 'update',
         'deleteStorage' => 'delete',
     ];
+
+    public function updatingSearch() {
+        $this->resetPage();
+    }
+
+    public function sortBy($field) {
+        if ($this->sortField == $field)
+            $this->sortAsc = !$this->sortAsc;
+        else
+            $this->sortAsc = true;
+
+        $this->sortField = $field;
+    }
 
     public function create($payload) {
         try {
@@ -115,8 +133,15 @@ class Management extends Component
 
     public function render() {
         return view('livewire.storage.management', [
-            'storages' => Storage::first('updated_at')
+            'storages' => Storage::filter([
+                'search' => $this->search,
+                'sortField' => $this->sortField,
+                'sortAsc' => $this->sortAsc,
+                'department' => $this->department
+            ])
+                ->with(['department'])
                 ->paginate(14)
+                ->withQueryString()
         ]);
     }
 }

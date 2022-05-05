@@ -49,6 +49,7 @@ class Management extends Component
             // Validate information and make sure name doesn't exist
             $validated = Validator::make($payload, [
                 'start_date' => 'required|date',
+                'end_date' => 'required|date',
                 'variety_id' => 'required|exists:varieties,id',
                 'field_id' => 'required|exists:fields,id',
                 'description' => 'nullable|string',
@@ -63,7 +64,7 @@ class Management extends Component
                     'variety_id' => $payload['variety_id'],
                     'field_id' => $payload['field_id'],
                     'start_date' => $payload['start_date'],
-                    'start' => $payload['start'],
+                    'end_date' => $payload['end_date'],
 
                 ]);
 
@@ -72,8 +73,8 @@ class Management extends Component
 
                 $varietyField->save();
 
-                $this->emitTo('varietyField.create-modal', 'show');
-                $this->emit('flashSuccess', 'VarietyField created');
+                $this->emitTo('variety-field.create-modal', 'show');
+                $this->emit('flashSuccess', 'Variety Field created');
             } catch (\exception $e) {
                 $this->emit('flashError', 'Error trying to create varietyField');
             }
@@ -87,12 +88,13 @@ class Management extends Component
 
     public function update($payload) {
         try {
-            // Validate information and that the email doesn't exist
+            // Validate information doesn't exist
             Validator::make($payload, [
-                'id' => 'required|string|exists:variety_fields,id',
-                'variety_id' => 'required|string|exists:varieties,id',
-                'field_id' => 'required|string|exists:fields,id',
-                'date' => 'required|date',
+                'id' => 'required|integer|exists:variety_fields,id',
+                'variety_id' => 'required|integer|exists:varieties,id',
+                'field_id' => 'required|integer|exists:fields,id',
+                'start_date' => 'required|date',
+                'end_date' => 'required|date',
                 'description' => 'nullable|string'
             ])->validate();
 
@@ -101,12 +103,14 @@ class Management extends Component
                 $varietyField = VarietyField::find($payload['id']);
                 $varietyField->variety_id = $payload['variety_id'];
                 $varietyField->field_id = $payload['field_id'];
-                $varietyField->date = $payload['date'];
+                $varietyField->start_date = $payload['start_date'];
+                $varietyField->end_date = $payload['end_date'];
+
                 if($payload['description']) $varietyField->description = $payload['description'];
 
                 $varietyField->save();
 
-                $this->emitTo('varietyField.edit-modal', 'show');
+                $this->emitTo('variety-field.edit-modal', 'show');
                 $this->emit('flashSuccess', 'Variety Field updated');
             } catch (\exception $e) {
                 $this->emit('flashError', 'Error trying to update  Variety Field');
@@ -141,6 +145,7 @@ class Management extends Component
     {
         return view('livewire.variety-field.management', [
             'varietyFields' => VarietyField::filter([
+                'search' => $this->search,
                 'variety' => $this->variety,
                 'field' => $this->field,
             ])

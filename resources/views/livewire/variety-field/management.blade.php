@@ -11,15 +11,16 @@
 
     <x-slot name="searchBar">
         <x-filters.variety-dropdown wire:model="variety"/>
-        <x-forms.search-input
+        {{-- <x-forms.search-input
             wire:model.debounce.500ms="search"
-            placeholder="Search Variety Name"/>
+            placeholder="Search Variety Name"/> --}}
     </x-slot>
 
     <x-slot name="columns">
         <th class="px-4 py-3 text-center">Variety</th>
         <th class="px-4 py-3 text-center">Field</th>
         <th class="px-4 py-3 text-center">Plant Date</th>
+        <th class="px-4 py-3 text-center">Expected Harvest Date</th>
         <th class="px-4 py-3 text-center">Description</th>
 
 
@@ -37,7 +38,11 @@
                 {{ $varietyField->field->name  ?? '' }}
             </td>
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
-                {{ $varietyField->start_date ?? ''}}
+                {{ date('j \\ F Y', strtotime($varietyField->start_date)) ?? ''}}
+            </td>
+
+            <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
+                {{  date('j \\ F Y', strtotime($varietyField->end_date))  ?? ''}}
             </td>
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
                 {{ $varietyField->description ?? ''}}

@@ -1,3 +1,4 @@
+@section('title', 'Storages')
 <x-table.layout
     itemCount="{{ $storages->count() }}"
     noItemsMessage="No Storages Available"

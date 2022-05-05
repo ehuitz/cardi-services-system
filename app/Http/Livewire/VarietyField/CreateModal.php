@@ -10,6 +10,7 @@ class CreateModal extends Modal
     public $variety = '';
     public $field = '';
     public $start_date = '';
+    public $end_date = '';
     public $description = '';
 
 
@@ -24,6 +25,7 @@ class CreateModal extends Modal
             'variety_id' => $this->variety,
             'field_id' => $this->field,
             'start_date' => $this->start_date,
+            'end_date' => $this->end_date,
             'description'=> $this->description
         ]);
     }
@@ -37,6 +39,7 @@ class CreateModal extends Modal
         $this->variety = '';
         $this->field = '';
         $this->start_date = '';
+        $this->end_date = '';
         $this->description = '';
     }
 

@@ -89,7 +89,7 @@ class Management extends Component
         try {
             // Validate information and make sure name doesn't exist
             $validated = Validator::make($payload, [
-                'id' => 'required|string|exists:varieties,id',
+                'id' => 'required|integer|exists:varieties,id',
                 'type' => 'required|string',
                 'description' => 'required|string',
                 'use' => 'required|string',
