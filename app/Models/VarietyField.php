@@ -38,8 +38,8 @@ class VarietyField extends Model
             )
         );
 
-        $query->when($filters['origin'] ?? false, fn($query, $origin) =>
-            $query->where('origin_id', $origin)
+        $query->when($filters['variety'] ?? false, fn($query, $variety) =>
+            $query->where('variety_id', $variety)
         );
     }
 }

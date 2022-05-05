@@ -1,6 +1,6 @@
 @props(['label' => '', 'items', 'id' => '', 'name' => $id, 'val' => '', 'enum' => false])
 <label class="block mt-4 text-sm">
-    <span class="text-gray-800 font-semibold dark:text-gray-300">
+    <span class="text-gray-700 dark:text-gray-300 font-semibold">
         {{ $label }}
     </span>
     <select class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600
@@ -20,7 +20,7 @@
             @endforeach
         @else
             @foreach($items as $item)
-                <option value="{{ $item->id }}" @if($val==$item->id) selected @endif>{{ $item->location. ' - '.$item->country->name }}</option>
+                <option value="{{ $item->id }}" @if($val==$item->id) selected @endif>{{ $item->name . ' - ' . $item->crop->name . ' - '. $item->origin->institution. ' - '. $item->origin->country->name }}</option>
             @endforeach
         @endif
     </select>

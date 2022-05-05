@@ -1,6 +1,5 @@
-{{--
-    Asset Tag, Model, Country, Serial Number, Mac Address, Actions
---}}
+@section('title', 'Fields')
+
 <x-table.layout
     itemCount="{{ $fields->count() }}"
     noItemsMessage="No Fields Available"

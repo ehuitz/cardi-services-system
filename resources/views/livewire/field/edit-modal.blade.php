@@ -11,7 +11,7 @@
 
         <x-forms.hidden :label="'ID'" :id="'edit_id'" placeholder="ID" wire:model.defer="oid" />
 
-        <x-forms.input label="name" id="edit_name" placeholder="name" wire:model.defer="name" />
+        <x-forms.input label="Field Name" id="edit_name" placeholder="name" wire:model.defer="name" />
 
         <x-forms.block-dropdown :identifier="'edit_block'" :label="'Block'" :id="'edit_block'"
             :name="'edit_block'" wire:model.defer="block" />

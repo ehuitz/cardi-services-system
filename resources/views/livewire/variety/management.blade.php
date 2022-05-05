@@ -23,6 +23,7 @@
         <th class="px-4 py-3">Country</th>
         <th class="px-4 py-3">Type</th>
         <th class="px-4 py-3">Description</th>
+        <th class="px-4 py-3">Actions</th>
     </x-slot>
 
     <x-slot name="rows">

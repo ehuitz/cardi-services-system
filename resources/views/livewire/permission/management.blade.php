@@ -1,3 +1,5 @@
+@section('title', 'Permissions')
+
 <x-table.layout
     itemCount="{{ $permissions->count() }}"
     noItemsMessage="No Permissions Available"

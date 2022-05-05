@@ -1,3 +1,5 @@
+@section('title', 'Roles')
+
 <x-table.layout
     itemCount="{{ $roles->count() }}"
     noItemsMessage="No Roles Available"

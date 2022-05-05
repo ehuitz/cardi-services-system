@@ -1,6 +1,5 @@
-{{--
-    Asset Tag, Model, Country, Serial Number, Mac Address, Actions
---}}
+@section('title', 'Departments')
+
 <x-table.layout
     itemCount="{{ $departments->count() }}"
     noItemsMessage="No Departments Available"

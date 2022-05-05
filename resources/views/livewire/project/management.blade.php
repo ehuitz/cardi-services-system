@@ -1,6 +1,5 @@
-{{--
-    Asset Tag, Model, Country, Serial Number, Mac Address, Actions
---}}
+@section('title', 'Projects')
+
 <x-table.layout
     itemCount="{{ $projects->count() }}"
     noItemsMessage="No Projects Available"

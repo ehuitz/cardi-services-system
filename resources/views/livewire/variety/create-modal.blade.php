@@ -30,6 +30,14 @@
 			:name="'create_origin'"
 			wire:model.defer="origin"
 		/>
+
+        <x-forms.variety-dropdown
+			:identifier="'create_variety'"
+			:label="'Variety'"
+			:id="'create_variety'"
+			:name="'create_variety'"
+			wire:model.defer="variety"
+		/>
         <x-forms.seed-type
         :identifier="'create_type'"
         :name="'create_type'"

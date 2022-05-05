@@ -31,6 +31,11 @@
                 active="{{ request()->routeIs('blocks.index') }}"
             />
 
+            <x-nav.sub-management-link title="Variety Fields"
+            link="{{ route('varietyFields.index') }}"
+            active="{{ request()->routeIs('varietyFields.index') }}"
+        />
+
         </ul>
     </template>
 </li>

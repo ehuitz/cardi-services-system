@@ -1,6 +1,4 @@
-{{--
-    Asset Tag, Model, Department, Serial Number, Mac Address, Actions
---}}
+@section('title', 'Variety Fields')
 <x-table.layout
     itemCount="{{ $varietyFields->count() }}"
     noItemsMessage="No Variety Fields Available"
@@ -12,10 +10,10 @@
     </x-slot>
 
     <x-slot name="searchBar">
-        <x-filters.department-dropdown wire:model="department"/>
+        <x-filters.variety-dropdown wire:model="variety"/>
         <x-forms.search-input
             wire:model.debounce.500ms="search"
-            placeholder="Search tag, serial, mac..."/>
+            placeholder="Search Variety Name"/>
     </x-slot>
 
     <x-slot name="columns">
@@ -30,13 +28,13 @@
 
     <x-slot name="rows">
         @foreach($varietyFields as $varietyField)
-        <tr id="{{ $varietyField->variety->name }}" class="text-gray-700 dark:text-gray-400">
+        <tr id="{{ $varietyField->variety->name ?? '' }}" class="text-gray-700 dark:text-gray-400">
 
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
-                {{ $varietyField->variety->name }}
+                {{ $varietyField->variety->name ?? '' }}
             </td>
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
-                {{ $varietyField->field->name }}
+                {{ $varietyField->field->name  ?? '' }}
             </td>
             <td class="px-4 py-3 text-sm text-center dark:text-gray-200">
                 {{ $varietyField->start_date ?? ''}}

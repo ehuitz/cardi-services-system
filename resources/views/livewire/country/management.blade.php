@@ -1,3 +1,5 @@
+@section('title', 'Countries')
+
 <x-table.layout
     itemCount="{{ $countries->count() }}"
     noItemsMessage="No Countries Available"

@@ -1,3 +1,5 @@
+@section('title', 'Staff')
+
 <x-table.layout itemCount="{{ $allStaff->count() }}" noItemsMessage="No Staff Available" createModal="true"
     tableWidth="max-w-6xl">
     <x-slot name="header">

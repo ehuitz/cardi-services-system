@@ -18,6 +18,7 @@ class CreateVarietyFieldsTable extends Migration
             $table->foreignId('variety_id');
             $table->foreignId('field_id');
             $table->date('start_date');
+            $table->date('end_date');
             $table->string('description')->nullable();
             $table->timestamps();
         });

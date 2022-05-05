@@ -67,8 +67,12 @@ Route::get('/varietyFields', function() {
     })->name('crops.index');
 
     Route::get('/varieties', function() {
-        return view('varieties.index');
-        })->name('varieties.index');
+    return view('varieties.index');
+    })->name('varieties.index');
+
+    Route::get('/varietyFields', function() {
+    return view('varietyFields.index');
+    })->name('varietyFields.index');
 
 
 

@@ -1,6 +1,5 @@
-{{--
-    Asset Tag, Model, Country, Serial Number, Mac Address, Actions
---}}
+@section('title', 'Blocks')
+
 <x-table.layout
     itemCount="{{ $blocks->count() }}"
     noItemsMessage="No Blocks Available"
