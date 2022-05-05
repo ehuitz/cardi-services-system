@@ -35,7 +35,7 @@ class FileUploadController extends Controller
 
              return redirect()->back();
             } catch (\exception $e) {
-                return response()->json(['msg' => 'Error sending message'], 406);
+                return redirect()->back();
             }
     }
 }

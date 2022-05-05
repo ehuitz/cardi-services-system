@@ -247,7 +247,7 @@
                         <label for="file"
                             class="relative cursor-pointer bg-white rounded-md font-medium text-gray-800 dark:text-gray-200 dark:bg-gray-800">
                             <span>Upload a file</span>
-                            <input id="file" name="file" type="file" class="sr-only">
+                            <input id="file" name="file" type="file" class="">
                         </label>
 
                     </div>

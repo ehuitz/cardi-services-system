@@ -34,7 +34,7 @@ class ImageUploadController extends Controller
 
              return redirect()->back();
             } catch (\exception $e) {
-                return response()->json(['msg' => 'Error uploading image'], 406);
+                return redirect()->back();
             }
     }
 }
