@@ -6,7 +6,7 @@
 
         <div class="flex gap-2 mb-2">
             <div class="h-10 w-10 rounded-full overflow-hidden">
-                <img src="https://i.pravatar.cc/100?u={{ $author->id }}" alt="Avatar" class="h-full w-full" />
+                <img src="{{ asset($ticket->author->path) }}" alt="Avatar" class="h-full w-full" />
             </div>
             <div class="text-md font-semibold mt-2 dark:text-gray-200">{{ $author->name }}</div>
         </div>

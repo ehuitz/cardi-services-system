@@ -10,7 +10,7 @@
 	<x-slot name="fields">
 		<x-forms.input label="Number" id="create_number" placeholder="Number" wire:model.defer="number"/>
 
-        <x-forms.repository-type
+        <x-forms.storage-type
         :identifier="'create_type'"
         :name="'create_type'"
         id="create_type"

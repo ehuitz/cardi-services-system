@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\ChartJsController;
 
@@ -27,7 +28,7 @@ Route::get('/dashboard', function() {
     if (auth()->user()->is_staff())
         return redirect()->route('tickets.index');
     return redirect()->route('requests.index');
-})->middleware('auth')
+})->middleware('auth', 'verified')
   ->name('dashboard');
 
 
@@ -40,6 +41,10 @@ Route::post('/store', [FileUploadController::class, 'store'])
 Route::post('/image-store', [ImageUploadController::class, 'store'])
 ->middleware('auth')
 ->name('images.store');
+
+Route::post('/profile-store', [UserController::class, 'updateProfile'])
+->middleware('auth')
+->name('profile.store');
 
 Route::post('/api/create-message', [MessageController::class, 'store'])
     ->middleware('auth')
@@ -58,3 +63,8 @@ require __DIR__.'/vrequests.php';
 
 // Route::get('chartjs', [ChartJsController::class, 'index']);
 Route::get('/chart-js', [ChartJSController::class, 'index'])->name('chartjs.index');
+
+Route::get('/profile', [UserController::class, 'show'] )
+->middleware('auth')
+->name('profile');
+

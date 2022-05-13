@@ -59,7 +59,7 @@
                                 <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                     <img
                                         class="object-cover w-full h-full rounded-full"
-                                        src="https://i.pravatar.cc/100?u={{ $ticket->author->id ?? '0'}}"
+                                        src="{{ asset($ticket->author->path) }}"
                                         alt=""
                                         loading="lazy"
                                     />

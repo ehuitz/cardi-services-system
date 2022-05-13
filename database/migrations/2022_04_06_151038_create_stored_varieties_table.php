@@ -18,7 +18,7 @@ class CreateStoredVarietiesTable extends Migration
             $table->foreignId('storage_id')->nullable();
             $table->foreignId('variety_field_id')->nullable();
             $table->foreignId('variety_id')->nullable();
-            $table->string('quantity')->unique();
+            $table->decimal('quantity')->nullable();
             $table->date('date')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();

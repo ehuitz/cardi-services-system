@@ -74,7 +74,7 @@ class Management extends Component
                 'number' => 'required|string|unique:storages,number,' . $payload['id'],
                 'type' => 'nullable|string',
                 'capacity_units' => 'nullable|string',
-                'capacity' => 'nullable|string',
+                'capacity' => 'nullable|numeric',
                 'repository' => 'nullable|string',
                 'department_id' => 'exists:departments,id',
 

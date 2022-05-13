@@ -1,6 +1,6 @@
 <x-filters.dropdown :attributes="$attributes">
    <x-slot name="label">
-      Assigned
+      Department
    </x-slot>
 
    @foreach($departments as $department)

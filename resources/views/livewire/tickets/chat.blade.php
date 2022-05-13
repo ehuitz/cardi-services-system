@@ -16,7 +16,7 @@
                             <div class="grid grid-cols-12 gap-y-2">
                                 @foreach ($allMessages as $message)
                                     @if ($message['author_id'] == auth()->user()->id)
-                                        <x-ticket.right-chat :message="$message" />
+                                        <x-ticket.right-chat :message="$message" :path="$message->author->path" />
                                     @else
                                         <x-ticket.left-chat :message="$message" />
                                     @endif

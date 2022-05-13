@@ -74,6 +74,10 @@ Route::get('/varietyFields', function() {
     return view('varietyFields.index');
     })->name('varietyFields.index');
 
+    Route::get('/storedVarieties', function() {
+        return view('storedVarieties.index');
+        })->name('storedVarieties.index');
+
 
 
     Route::get('/projects', function() {

@@ -5,7 +5,8 @@
             h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
         >
             <img class="object-cover rounded-full"
-                src="https://i.pravatar.cc/100?u={{ $message['author_id'] }}" />
+                src="https://i.pravatar.cc/100?u={{ $message['author_id'] }}"
+                />{{ asset($ticket->author->path) }}
         </div>
         <div class="relative mr-3 text-sm bg-green-200 dark:bg-green-500
             dark:text-gray-100 py-2 px-4 shadow rounded-xl min-w-65 md:min-w-60">
