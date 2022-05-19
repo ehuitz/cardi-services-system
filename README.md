@@ -1,6 +1,6 @@
 # Laravel CARDI Services System
 
-### [View it live here](https://cardi-services-sytem.c0deweb.com/)
+### [View it live here](https://cardi-services-system.c0deweb.com/)
 
 ### Login Info
 
