@@ -4,7 +4,7 @@
 
 ### Login Info
 
-* Staff --> admin@admin.com | password
+* Staff --> staff@staff.com | password
 * User --> user@user.com | password
 
 ## Features
