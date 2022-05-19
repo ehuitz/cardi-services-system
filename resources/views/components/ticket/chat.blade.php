@@ -8,9 +8,9 @@
                         <div class="grid grid-cols-12 gap-y-2">
                             @foreach($messages as $message)
                                 @if ($message->author == auth()->user())
-                                    <x-ticket.right-chat :message="$message"/>
+                                    <x-ticket.right-chat :message="$message" :author="$message->author"/>
                                 @else
-                                    <x-ticket.left-chat :message="$message"/>
+                                    <x-ticket.left-chat :message="$message" :author="$message->author"/>
                                 @endif
                             @endforeach
                         </div>

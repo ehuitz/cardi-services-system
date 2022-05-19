@@ -1,19 +1,31 @@
 # Laravel CARDI Services System
 
-### [View it live here](https://helpdesk.mattlittle.dev/)
+### [View it live here](https://cardi-services-sytem.c0deweb.com/)
 
 ### Login Info
 
-* Admin/Staff --> admin@admin.com | password
+* Staff --> admin@admin.com | password
 * User --> user@user.com | password
 
 ## Features
 
-* Services System w/ filters (status, type and staff)
-* Messaging system
-* Tickets are assigned to specific staff based on country and request Type
-* Staff are able to create, edit and delete countries, service request, users and staff
-* Ability to search through tickets with keyword
+* Service Request Exchange Platform
+* Employee Leave Request Management
+* Seed Database System
+* Inventory System
+* Admin Settings
+
+
+**How to Install**
+
+1. Git Clone or download zip
+2. composer install in project directory
+3. npm install
+4. Create a copy of your .env file
+5. generate new key
+6. Set Database variables in .env file
+7. php artisan migrate
+8. php artisan db:seed
 
 ## Project Details
 
