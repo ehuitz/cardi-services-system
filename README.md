@@ -15,7 +15,6 @@
 * Inventory System
 * Admin Settings
 
-
 **How to Install**
 
 1. Git Clone or download zip
@@ -26,6 +25,14 @@
 6. Set Database variables in .env file
 7. php artisan migrate
 8. php artisan db:seed
+
+**Requires**
+
+* Ubuntu
+* Apache2
+
+* PHP 7+
+
 
 ## Project Details
 
